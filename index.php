@@ -36,10 +36,12 @@ $ModifyParsedown = new ParsedownModifyVoid($ElementModifier);
     <!-- Document -->
     <div class="row doc-body">
         <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+            <!-- Rendered Document -->
 <?php
 $file = file_get_contents($pageconfig->mdfile, true);
-echo $ModifyParsedown->text($file);
+echo "\n" . $ModifyParsedown->text($file) . "\n";
 ?>
+            <!-- ^Rendered Document -->
         </div>
         <button id="gototop" class="gototop" onclick="jumpToTop()" title="Go to top of page">&#9650;<br>top</button> 
         <br>
