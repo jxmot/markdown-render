@@ -1,0 +1,67 @@
+/*
+    Parsedown Rendered Document Styling
+
+    (c) 2017 Jim Motyl - https://github.com/jxmot/
+
+
+    Things to remember if there are HTML tags with in-line
+    styling in the rendered document :
+
+    1) In-line CSS (html style attribute) overrides CSS rules in 
+       style tag and CSS file.
+    2) A more specific selector takes precedence over a less 
+       specific one.
+    3) Rules that appear later in the code override earlier rules 
+       if both have the same specificity.
+    4) A CSS rule with !important always takes precedence.
+
+*/
+body{
+    margin:0;
+    padding:0;
+    font-family:"Helvetica Neue",Helvetica, Arial;
+}
+
+@media print {
+    body {
+        display: none;
+    }
+}
+
+.page-nocopy {
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
+
+.doc-body {
+    margin-bottom: 5%;
+}
+
+code {
+    color: yellow;
+    background: black;
+    font-style: bold;
+}
+
+pre {
+    color: yellow;
+    background: black;
+    font-style: bold;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-weight: 100;
+}
+
+table > thead > tr > th {
+    padding-left: 2%;
+    padding-right: 2%;
+    border-bottom: 1px dotted white;
+}
+
+p > img {
+    background-color: white;
+}
+
