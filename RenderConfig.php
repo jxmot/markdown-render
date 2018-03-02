@@ -31,12 +31,12 @@ class RenderConfig {
 
         // optional meta tags, it's not necessary to 
         // include them in the JSON file if not used.
+        $this->metaauth  = (isset($this->cfg->metaauth) ? $this->cfg->metaauth : "");
         //
         // To Do : get this info from the owner's 
-        // repository.
+        // repository via the GitHub API.
         $this->metadesc  = (isset($this->cfg->metadesc) ? $this->cfg->metadesc : "");
         $this->metakeyw  = (isset($this->cfg->metakeyw) ? $this->cfg->metakeyw : "");
-        $this->metaauth  = (isset($this->cfg->metaauth) ? $this->cfg->metaauth : "");
     }
 }
 
