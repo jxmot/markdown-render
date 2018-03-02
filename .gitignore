@@ -5,7 +5,7 @@ _*.*
 # And the following folder(s) -
 node_modules
 _*
-/nbproject/private/
+#/nbproject/private/
 # misc stuff i want to ignore -
 *.log
 *.txt
