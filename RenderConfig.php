@@ -28,6 +28,15 @@ class RenderConfig {
         $this->owner     = $this->cfg->owner;
         $this->repo      = $this->cfg->repo;
         $this->branch    = $this->cfg->branch;
+
+        // optional meta tags, it's not necessary to 
+        // include them in the JSON file if not used.
+        //
+        // To Do : get this info from the owner's 
+        // repository.
+        $this->metadesc  = (isset($this->cfg->metadesc) ? $this->cfg->metadesc : "");
+        $this->metakeyw  = (isset($this->cfg->metakeyw) ? $this->cfg->metakeyw : "");
+        $this->metaauth  = (isset($this->cfg->metaauth) ? $this->cfg->metaauth : "");
     }
 }
 

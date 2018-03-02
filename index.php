@@ -14,7 +14,15 @@ $ModifyParsedown = new ParsedownModifyVoid($ElementModifier);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<?php
+    if($pageconfig->metadesc !== "") echo "    <meta name=\"description\" content=\"$pageconfig->metadesc\"/>\n";
+    if($pageconfig->metakeyw !== "") echo "    <meta name=\"keywords\" content=\"$pageconfig->metakeyw\"/>\n";
+    if($pageconfig->metaauth !== "") echo "    <meta name=\"author\" content=\"$pageconfig->metaauth\"/>\n";
+?>
+
     <title><?php echo $pageconfig->pagetitle; ?></title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cyborg/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700">
 
@@ -24,10 +32,7 @@ $ModifyParsedown = new ParsedownModifyVoid($ElementModifier);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<!--
 <body class="page-nocopy">
--->
-<body>
     <!-- Document -->
     <div class="row doc-body">
         <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">

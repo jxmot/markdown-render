@@ -4,5 +4,8 @@
     "repo"     : "repo_name_goes_here",
     "branch"   : "master",
     "mdfile"   : "README.md",
-    "pagetitle": "desired_page_tile_goes_here"
+    "pagetitle": "desired_page_tile_goes_here",
+    "metadesc" : "optional description, remove if not used",
+    "metakeyw" : "optional keywords, remove if not used",
+    "metaauth" : "optional author, remove if not used"
 }
