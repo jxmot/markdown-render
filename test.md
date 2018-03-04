@@ -23,21 +23,21 @@ Image link - `![Image, relative path](./mdimg/electric-globe-600x400.jpg)`
 
 ```
 <p align="center">
-  <img src="./mdimg/electric-globe-600x400.jpg" alt="Circuit Schematic" txt="Circuit Schematic" width="50%">
+  <img src="./mdimg/electric-globe-600x400.jpg" alt="sample image" txt="sample image" width="50%">
 </p>
 ```
 
 <p align="center">
-  <img src="./mdimg/electric-globe-600x400.jpg" alt="Circuit Schematic" txt="Circuit Schematic" width="50%">
+  <img src="./mdimg/electric-globe-600x400.jpg" alt="sample image" txt="sample image" width="50%">
 </p>
 
 **Just an `<img>` tag :**
 
 ```
-<img src="./mdimg/electric-globe-600x400.jpg" alt="Circuit Schematic" txt="Circuit Schematic" width="50%">
+<img src="./mdimg/electric-globe-600x400.jpg" alt="sample image" txt="sample image" width="50%">
 ```
 
-<img src="./mdimg/electric-globe-600x400.jpg" alt="Circuit Schematic" txt="Circuit Schematic" width="50%">
+<img src="./mdimg/electric-globe-600x400.jpg" alt="sample image" txt="sample image" width="50%">
 
 ### Test 1 Expected Results
 
