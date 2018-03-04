@@ -4,7 +4,14 @@ require_once "RenderConfig.php";
 require_once "ModifyElements.php";
 require_once "ParsedownModifyVoid.php";
 
-$pageconfig = new RenderConfig("./ESP8266-RCWL0516.json");
+parse_str($_SERVER["QUERY_STRING"], $query_array);
+if(array_key_exists("cfg", $query_array)) {
+    $choice = $query_array["cfg"];
+} else $choice = "default";
+
+$cfgfile = $choice . ".json";
+
+$pageconfig = new RenderConfig($cfgfile);
 $ElementModifier = new ModifyElements($pageconfig);
 $render = new ParsedownModifyVoid($ElementModifier);
 
@@ -14,7 +21,6 @@ if($pageconfig->genstatic === true) ob_start();
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
