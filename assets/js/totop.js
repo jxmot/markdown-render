@@ -5,6 +5,10 @@
 */
 window.onscroll = function() {onWindowScroll()};
 
+// a percentage of document size, if scrolled past this
+// point the "to top" button will be displayed.
+const scroll_travel = 0.05;
+
 function onWindowScroll() {
 
     //dump();
@@ -27,7 +31,7 @@ function jumpToTop() {
 function showToTop() {
     // the point where the the button appears is based on percentage of
     // the height of the document and NOT the window.
-    if(Math.round(($(document).height() * 0.05)) < document.documentElement.scrollTop) return true;
+    if(Math.round(($(document).height() * scroll_travel)) < document.documentElement.scrollTop) return true;
     else return false;
 }
 
@@ -35,8 +39,8 @@ function showToTop() {
 function dump() {
     console.log($(document).height());
     console.log(document.documentElement.scrollTop);
-    console.log(Math.round($(document).height() * 0.05));
-    console.log(Math.round(($(document).height() * 0.05)) < document.documentElement.scrollTop);
+    console.log(Math.round($(document).height() * scroll_travel));
+    console.log(Math.round(($(document).height() * scroll_travel)) < document.documentElement.scrollTop);
     console.log('showToTop() - ' + showToTop());
     console.log('-------');
     console.log(document.body.scrollTop);
