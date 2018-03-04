@@ -14,7 +14,7 @@
 class Parsedown
 {
     # ~
-    const version = '1.6.0';
+    const version = '1.6.0.1';
 
     # ~
     function text($text)
