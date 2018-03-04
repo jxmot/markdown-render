@@ -9,7 +9,7 @@ The images below are used in testing the ability to adjust the paths to point to
 * Markdown image link
 * Embedded HTML
 
-**NOTES:** GitHub ignores any styling in the tag. It will also convert any `<img>` tag to a link to the image. 
+**NOTES:** GitHub ignores any styling in embedded HTML except for `width` and `height` attributes. It will also convert any `<img>` tag to a link to the image. However if the `<img>` tag is wrapped in a `<p>` it will wrap the `<img>` in an `<a href=...>`.
 
 ### Markdown Inline Image Link
 
