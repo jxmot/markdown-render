@@ -14,7 +14,7 @@
     "mdfilerem": true,
     "mdfile"   : "README.md",
 
-    "pagetitle": "SensorNet Client - Design Notes",
+    "pagetitle": "ESP8266-RCWL0516 - Design Notes",
 
     "gitdesc"  : true,
     "metadesc" : "",
@@ -25,5 +25,5 @@
     "metaauth" : "https://github.com/jxmot",
 
     "genstatic": true,
-    "statname" : "./static.html"
+    "statname" : "./rcwl0516.html"
 }
