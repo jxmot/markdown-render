@@ -1,0 +1,29 @@
+{
+    "reporaw"  : "https://raw.githubusercontent.com/",
+
+    "repoapi"  : "https://api.github.com/",
+    "accheader": [
+                    "application/vnd.github.v3+json",
+                    "application/vnd.github.mercy-preview+json"
+                 ],
+
+    "owner"    : "jxmot",
+    "repo"     : "markdown-render",
+    "branch"   : "master",
+
+    "mdfilerem": true,
+    "mdfile"   : "README.md",
+
+    "pagetitle": "markdown-render - README",
+
+    "gitdesc"  : true,
+    "metadesc" : "",
+
+    "gittopics": true,
+    "metakeyw" : "",
+
+    "metaauth" : "https://github.com/jxmot",
+
+    "genstatic": false,
+    "statname" : "./mdrender.html"
+}
