@@ -46,3 +46,16 @@ Image link - `![Image, relative path](./mdimg/electric-globe-600x400.jpg)`
 * Embedded HTML - The `src` attribute will become an *absolute* path to the image, it will retain all other attributes that were present in the source.
 
 
+## Test 2
+
+This test will be used to insure that all "void" elements (*as listed in* `Parsedown.php`*-*`$voidElements`).
+
+* `<hr>` - 
+
+<hr>
+
+* `<br>` - 
+Text before `<br>` - <br> - text after `<br>`.
+
+### Test 2 Expected Results
+
