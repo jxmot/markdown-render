@@ -50,12 +50,19 @@ Image link - `![Image, relative path](./mdimg/electric-globe-600x400.jpg)`
 
 This test will be used to insure that all "void" elements (*as listed in* `Parsedown.php`*-*`$voidElements`).
 
-* `<hr>` - 
+* `<hr>` test - 
+
+There should be a horizontal rule below this line.
 
 <hr>
 
-* `<br>` - 
+There should be a horizontal rule above this line.
+
+
+* `<br>` test - 
 Text before `<br>` - <br> - text after `<br>`.
 
 ### Test 2 Expected Results
+
+Elements that are not set to be modified should be let through without any changes or errors.
 
