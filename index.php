@@ -6,7 +6,11 @@ require_once "ParsedownModifyVoid.php";
 
 $pageconfig = new RenderConfig("./ESP8266-RCWL0516.json");
 $ElementModifier = new ModifyElements($pageconfig);
-$ModifyParsedown = new ParsedownModifyVoid($ElementModifier);
+$render = new ParsedownModifyVoid($ElementModifier);
+
+// generate a static file?
+if($pageconfig->genstatic === true) ob_start();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,7 +43,7 @@ $ModifyParsedown = new ParsedownModifyVoid($ElementModifier);
             <!-- Rendered Document -->
 <?php
 $file = file_get_contents($pageconfig->mdfile, true);
-echo "\n" . $ModifyParsedown->text($file) . "\n";
+echo "\n" . $render->text($file) . "\n";
 ?>
             <!-- ^Rendered Document -->
         </div>
@@ -60,3 +64,13 @@ echo "\n" . $ModifyParsedown->text($file) . "\n";
 </body>
 <script src="./assets/js/totop.js"></script>
 </html>
+<?php
+// generate a static file?
+if($pageconfig->genstatic === true) {
+    $content = ob_get_contents();
+    ob_end_flush();
+    $fh = fopen("$pageconfig->statname",'w'); 
+    fwrite($fh,$content);
+    fclose($fh);
+}
+?>
