@@ -13,12 +13,13 @@ The images below are used in testing the ability to adjust the paths to point to
 
 ![Image, relative path](./mdimg/electric-globe-600x400.jpg)
 
+![Image, relative path](./mdimg/electric-globe-600x400.jpg){:width="50%"}
+
 ### Embedded HTML
 
 <p align="center">
-  <img src="./mdimg/electric-globe-600x400.jpg" alt="Circuit Schematic" txt="Circuit Schematic" style="border: 4px solid black;width:400px">
+  <img src="./mdimg/electric-globe-600x400.jpg" alt="Circuit Schematic" txt="Circuit Schematic" width="50%" style="border: 4px solid black;">
 </p>
 
-<img src="./mdimg/electric-globe-600x400.jpg" alt="Circuit Schematic" txt="Circuit Schematic" style="border: 4px solid black;width:400px">
+<img src="./mdimg/electric-globe-600x400.jpg" alt="Circuit Schematic" txt="Circuit Schematic" width="50%" style="border: 4px solid black;">
 
-<img src="./mdimg/electric-globe-600x400.jpg" alt="Circuit" txt="Schematic" style="border: 4px solid black;margin-left: auto;margin-right: auto;background-color: white;">
