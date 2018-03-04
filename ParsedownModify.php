@@ -1,6 +1,6 @@
 <?php
 
-class ParsedownModifyVoid extends Parsedown {
+class ParsedownModify extends Parsedown {
 
     private $pdModTagObj;
 

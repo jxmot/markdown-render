@@ -2,7 +2,7 @@
 require_once "Parsedown.php";
 require_once "RenderConfig.php";
 require_once "ModifyElements.php";
-require_once "ParsedownModifyVoid.php";
+require_once "ParsedownModify.php";
 
 parse_str($_SERVER["QUERY_STRING"], $query_array);
 if(array_key_exists("cfg", $query_array)) {
@@ -13,7 +13,7 @@ $cfgfile = $choice . ".json";
 
 $pageconfig = new RenderConfig($cfgfile);
 $ElementModifier = new ModifyElements($pageconfig);
-$render = new ParsedownModifyVoid($ElementModifier);
+$render = new ParsedownModify($ElementModifier);
 
 // generate a static file?
 if($pageconfig->genstatic === true) ob_start();
