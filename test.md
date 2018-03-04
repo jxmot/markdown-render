@@ -1,4 +1,4 @@
-# Test
+# markdown-render Tests
 
 A file used for testing the modifications made to the Parsedown class and the classes that I have created.
 
@@ -9,9 +9,9 @@ The images below are used in testing the ability to adjust the paths to point to
 * Markdown image link
 * Embedded HTML
 
-**NOTES:** GitHub ignores any styling in the tag. It will also convert any `<img>` tag to a link to the image.
+**NOTES:** GitHub ignores any styling in the tag. It will also convert any `<img>` tag to a link to the image. 
 
-### Markdown Image Link
+### Markdown Inline Image Link
 
 Image link - `![Image, relative path](./mdimg/electric-globe-600x400.jpg)`
 
@@ -38,4 +38,11 @@ Image link - `![Image, relative path](./mdimg/electric-globe-600x400.jpg)`
 ```
 
 <img src="./mdimg/electric-globe-600x400.jpg" alt="Circuit Schematic" txt="Circuit Schematic" width="50%">
+
+### Test 1 Expected Results
+
+* Inline Image Link - The `src` attribute will become an *absolute* path to the image **and** the `alt` attribute will be modified to be `"Image, absolute path"`.
+
+* Embedded HTML - The `src` attribute will become an *absolute* path to the image, it will retain all other attributes that were present in the source.
+
 
