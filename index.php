@@ -32,13 +32,13 @@ if($pageconfig->genstatic === true) ob_start();
 ?>
 
     <title><?php echo $pageconfig->pagetitle; ?></title>
-
+    <!-- Bootstrap / fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cyborg/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700">
-
+    <!-- page styling -->
     <link rel="stylesheet" href="./assets/css/document.css">
     <link rel="stylesheet" href="./assets/css/totop.css">
-
+    <!-- jquery, etc -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -68,6 +68,7 @@ echo "\n" . $render->text($file) . "\n";
     </footer>
     <!-- ^Page Footer -->
 </body>
+<!-- code for the "go to top" button -->
 <script src="./assets/js/totop.js"></script>
 </html>
 <?php
