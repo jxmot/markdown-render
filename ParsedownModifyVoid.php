@@ -14,7 +14,7 @@ class ParsedownModifyVoid extends Parsedown {
         $Block = array();
 
         if(isset($block['name']) && isset($block['markup'])) {
-            if(isset($this->pdModTagObj)) {
+            if(isset($this->pdModTagObj) && in_array($block['name'], $this->pdModTagObj->validtags)) {
                 $Block = $this->pdModTagObj->{strtolower($block['name']).'Modify'}($block);
             } else $Block = $block;
         } else $Block = $block;

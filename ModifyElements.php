@@ -9,6 +9,8 @@ class ModifyElements {
     private $attrs    = array();
     private $pathsep  = "/";
 
+    public $validtags = array('img');
+
     private $reporaw;
     private $owner;
     private $repo;
