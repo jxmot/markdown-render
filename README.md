@@ -144,10 +144,14 @@ Add the section above to your `php.ini` file. Under XAMPP it is located at `C:\x
 
 NetBeans will allow you to set breakpoints and examine variables.
 
+# Application Architecture
+
+<p align="center">
+  <img src="./mdimg/app-arch-simple.png" alt="Basic Architecture" txt="Basic Architecture" width="75%">
+</p>
+
 # IMPORTANT Things to Note
 
 The version of *Parsedown* used in this repository is realatively old. It was created *around* May 2017. There have been a large number of changes made at [Parsedown](https://github.com/erusev/parsedown) since the time when the current version was first obtained. I plan on updating the local copy of Parsedown after activivity has settled down in the Parsedown repository.
-
-# Application Architecture
 
 
