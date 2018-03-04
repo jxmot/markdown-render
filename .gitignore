@@ -7,6 +7,7 @@ node_modules
 _*
 #/nbproject/private/
 # misc stuff i want to ignore -
+*.html
 *.log
 *.txt
 *.bat
