@@ -1079,6 +1079,8 @@ class Parsedown
         );
         $Inline['element']['attributes'] += $Link['element']['attributes'];
         unset($Inline['element']['attributes']['href']);
+        // jxmot - modify the inline element
+        $Inline = $this->modifyInline($Inline);
         return $Inline;
     }
 
@@ -1365,6 +1367,14 @@ class Parsedown
         // must override
 
         return $Block;
+    }
+
+    # modify inline markdown
+    protected function modifyInline(array $Inline)
+    {
+        // must override
+
+        return $Inline;
     }
 
     #

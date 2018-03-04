@@ -23,6 +23,21 @@ class ParsedownModifyVoid extends Parsedown {
         // parent to complete any necessary additional steps.
         return parent::modifyVoid($Block);
     }
+
+    protected function modifyInline(array $inline)
+    {
+        $Inline = array();
+
+        if($inline['element']['name'] === 'img') {
+            if(isset($this->pdModTagObj)) {
+                $Inline = $this->pdModTagObj->imgModify($inline);
+            } else $Inline = $inline;
+        } else $Inline = $inline;
+
+        // Return result using modified values and allow the
+        // parent to complete any necessary additional steps.
+        return parent::modifyInline($Inline);
+    }
 }
 
 ?>
