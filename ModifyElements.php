@@ -24,16 +24,28 @@ class ModifyElements {
 
     public function imgModify(array $imgBlock) 
     {
-        // verify the block name in case the caller didn't
-        if((strtolower($imgBlock['name']) === 'img') &&(isset($imgBlock['markup']))) {
-            if($this->getAttributes($imgBlock['markup']) !== false) {
-                // rebuild the "src" attribute
+        // one of two types were passed to us, an element or
+        // an inline.
+        if(isset($imgBlock['name'])) {
+            // verify the block name in case the caller didn't
+            if((strtolower($imgBlock['name']) === 'img') &&(isset($imgBlock['markup']))) {
+                if($this->getAttributes($imgBlock['markup']) !== false) {
+                    // rebuild the "src" attribute
+                    $src = $this->reporaw . $this->owner . $this->pathsep . $this->repo . $this->pathsep . $this->branch . $this->pathsep;
+                    // remove leading "./" from $this->attrs['src']
+                    $src = str_replace("./", "", ($src . $this->attrs['src']));
+                    // rebuild the markup
+                    $this->attrs['src'] = $src;
+                    $imgBlock['markup'] = $this->rebuildElement($imgBlock['name']);
+                }
+            }
+        } else {
+            if(isset($imgBlock['element'])) {
                 $src = $this->reporaw . $this->owner . $this->pathsep . $this->repo . $this->pathsep . $this->branch . $this->pathsep;
                 // remove leading "./" from $this->attrs['src']
-                $src = str_replace("./", "", ($src . $this->attrs['src']));
-                // rebuild the markup
-                $this->attrs['src'] = $src;
-                $imgBlock['markup'] = $this->rebuildElement($imgBlock['name']);
+                $src = str_replace("./", "", ($src . $imgBlock['element']['attributes']['src']));
+                $imgBlock['element']['attributes']['src'] = $src;
+                $imgBlock['element']['attributes']['alt'] = "Image, absolute path";
             }
         }
         return $imgBlock;
