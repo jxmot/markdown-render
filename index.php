@@ -7,7 +7,7 @@ require_once "ParsedownModifyVoid.php";
 parse_str($_SERVER["QUERY_STRING"], $query_array);
 if(array_key_exists("cfg", $query_array)) {
     $choice = $query_array["cfg"];
-} else $choice = "default";
+} else $choice = "test";
 
 $cfgfile = $choice . ".json";
 
