@@ -57,7 +57,7 @@ PHP was the primary technology used in this project. It provides all of the nece
     * `test.json`
     * `test.md`
 
-5. Run and start XAMPP
+5. Run XAMPP and start Apache
 6. Open your browser and navigate to - `http://localhost/tests/mdrender/index.php`
 7. The page you see *should* look like the [test.md](./test.md) (*right-click and open in a new tab or window*) file.
 
