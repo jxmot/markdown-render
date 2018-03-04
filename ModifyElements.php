@@ -9,14 +9,14 @@ class ModifyElements {
     private $attrs    = array();
     private $pathsep  = "/";
 
-    private $repohome;
+    private $reporaw;
     private $owner;
     private $repo;
     private $branch;
 
     function __construct($mdcfg)
     {
-        $this->repohome  = $mdcfg->repohome;
+        $this->reporaw  = $mdcfg->reporaw;
         $this->owner     = $mdcfg->owner;
         $this->repo      = $mdcfg->repo;
         $this->branch    = $mdcfg->branch;
@@ -28,7 +28,7 @@ class ModifyElements {
         if((strtolower($imgBlock['name']) === 'img') &&(isset($imgBlock['markup']))) {
             if($this->getAttributes($imgBlock['markup']) !== false) {
                 // rebuild the "src" attribute
-                $src = $this->repohome . $this->owner . $this->pathsep . $this->repo . $this->pathsep . $this->branch . $this->pathsep;
+                $src = $this->reporaw . $this->owner . $this->pathsep . $this->repo . $this->pathsep . $this->branch . $this->pathsep;
                 // remove leading "./" from $this->attrs['src']
                 $src = str_replace("./", "", ($src . $this->attrs['src']));
                 // rebuild the markup
