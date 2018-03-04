@@ -64,5 +64,5 @@ Text before `<br>` - <br> - text after `<br>`.
 
 ### Test 2 Expected Results
 
-Elements that are not set to be modified should be let through without any changes or errors.
+Elements that are not set to be modified should be passed through without any changes or errors.
 
