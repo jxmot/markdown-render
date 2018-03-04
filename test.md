@@ -9,17 +9,33 @@ The images below are used in testing the ability to adjust the paths to point to
 * Markdown image link
 * Embedded HTML
 
+**NOTES:** GitHub ignores any styling in the tag. It will also convert any `<img>` tag to a link to the image.
+
 ### Markdown Image Link
+
+Image link - `![Image, relative path](./mdimg/electric-globe-600x400.jpg)`
 
 ![Image, relative path](./mdimg/electric-globe-600x400.jpg)
 
-![Image, relative path](./mdimg/electric-globe-600x400.jpg){:width="50%"}
-
 ### Embedded HTML
 
+**Centered using a `<p>` tag :**
+
+```
 <p align="center">
-  <img src="./mdimg/electric-globe-600x400.jpg" alt="Circuit Schematic" txt="Circuit Schematic" width="50%" style="border: 4px solid black;">
+  <img src="./mdimg/electric-globe-600x400.jpg" alt="Circuit Schematic" txt="Circuit Schematic" width="50%">
+</p>
+```
+
+<p align="center">
+  <img src="./mdimg/electric-globe-600x400.jpg" alt="Circuit Schematic" txt="Circuit Schematic" width="50%">
 </p>
 
-<img src="./mdimg/electric-globe-600x400.jpg" alt="Circuit Schematic" txt="Circuit Schematic" width="50%" style="border: 4px solid black;">
+**Just an `<img>` tag :**
+
+```
+<img src="./mdimg/electric-globe-600x400.jpg" alt="Circuit Schematic" txt="Circuit Schematic" width="50%">
+```
+
+<img src="./mdimg/electric-globe-600x400.jpg" alt="Circuit Schematic" txt="Circuit Schematic" width="50%">
 
