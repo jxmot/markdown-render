@@ -1,0 +1,9 @@
+{
+    "reporaw"  : "https://raw.githubusercontent.com/",
+
+    "repoapi"  : "https://api.github.com/",
+    "accheader": [
+                    "application/vnd.github.v3+json",
+                    "application/vnd.github.mercy-preview+json"
+                 ]
+}
