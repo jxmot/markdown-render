@@ -1,12 +1,4 @@
 {
-    "reporaw"  : "https://raw.githubusercontent.com/",
-
-    "repoapi"  : "https://api.github.com/",
-    "accheader": [
-                    "application/vnd.github.v3+json",
-                    "application/vnd.github.mercy-preview+json"
-                 ],
-
     "owner"    : "repo_owner_goes_here",
     "repo"     : "repo_name_goes_here",
     "branch"   : "master",

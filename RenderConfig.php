@@ -2,12 +2,15 @@
 
 class RenderConfig {
 
-    private $cfg;
+    private $git;
+    public $reporaw;
+    public $repoapi;
+    public $accheader = array();
+
     private $pathsep  = "/";
 
+    private $cfg;
     public $mdfile;
-
-    public $reporaw;
     public $owner;
     public $repo;
     public $branch;
@@ -21,12 +24,17 @@ class RenderConfig {
 
     function __construct($cfgfile)
     {
-        if(!file_exists($cfgfile)) $cfgfile = "./default.json";
+        $this->git = json_decode(file_get_contents("./github.json"));
+        $this->reporaw = $this->git->reporaw;
+        $this->repoapi = $this->git->repoapi;
+        $this->accheader = $this->git->accheader;
+
+        if(!file_exists($cfgfile)) $cfgfile = "./test.json";
         $this->cfg = json_decode(file_get_contents($cfgfile));
 
         if(isset($this->cfg->mdfilerem) && ($this->cfg->mdfilerem === true)) {
             // create the path to the file that we will render
-            $this->mdfile = $this->cfg->reporaw . $this->cfg->owner . $this->pathsep . $this->cfg->repo . $this->pathsep . $this->cfg->branch . $this->pathsep . $this->cfg->mdfile;
+            $this->mdfile = $this->git->reporaw . $this->cfg->owner . $this->pathsep . $this->cfg->repo . $this->pathsep . $this->cfg->branch . $this->pathsep . $this->cfg->mdfile;
         } else {
             $this->mdfile = $this->cfg->mdfile;
         }
@@ -34,7 +42,6 @@ class RenderConfig {
         // reduce the depth at which clients will need to
         // reach into this object
         $this->pagetitle = $this->cfg->pagetitle;
-        $this->reporaw   = $this->cfg->reporaw;
         $this->owner     = $this->cfg->owner;
         $this->repo      = $this->cfg->repo;
         $this->branch    = $this->cfg->branch;
@@ -63,14 +70,14 @@ class RenderConfig {
 
         if(($this->cfg->gitdesc === true) || ($this->cfg->gittopics === true)) {
             // put together the base URL, 
-            $url = $this->cfg->repoapi . "repos/" . $this->cfg->owner . $this->pathsep . $this->cfg->repo;
+            $url = $this->git->repoapi . "repos/" . $this->cfg->owner . $this->pathsep . $this->cfg->repo;
         }
 
         if($this->cfg->gitdesc === true) {
             $this->metadesc = "Document - ";
             if($this->cfg->gittopics === true) {
                 // retrieve repo info w/ topics
-                $gitresp = $this->getFromGit($this->cfg->accheader[1], $url);
+                $gitresp = $this->getFromGit($this->git->accheader[1], $url);
  
                 foreach($gitresp->topics as $topic) {
                     $topics = $topics . $topic . ",";
@@ -78,14 +85,14 @@ class RenderConfig {
                 $this->metakeyw = $this->metakeyw . trim($topics,",");
             } else {
                 // retrieve repo info w/o topics
-                $gitresp = $this->getFromGit($this->cfg->accheader[0], $url);
+                $gitresp = $this->getFromGit($this->git->accheader[0], $url);
             }
             $this->metadesc = $this->metadesc . $gitresp->description;
         } else {
             if($this->cfg->gittopics === true) {
                 // retrieve repo topics only
                 $url = $url . $this->pathsep . "topics";
-                $gitresp = $this->getFromGit($this->cfg->accheader[1], $url);
+                $gitresp = $this->getFromGit($this->git->accheader[1], $url);
 
                 foreach($gitresp->names as $topic) {
                     $topics = $topics . $topic . ",";
