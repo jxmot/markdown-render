@@ -67,6 +67,7 @@ class ModifyElements {
                         $linkBlock['element']['attributes']['href'] = $src;
                         $linkBlock['element']['attributes']['target'] = "_blank";
                     } else {
+                        // see if the href starts with 'http'
                         if(strpos($linkBlock['element']['attributes']['href'], "http", 0) === 0) {
                             $linkBlock['element']['attributes']['target'] = "_blank";
                         }
