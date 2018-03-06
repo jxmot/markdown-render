@@ -13,6 +13,13 @@ I had investegated a number of potential solutions and determined that [Parsedow
 
 The following features are *enhancements* to the operation of the original Parsedown - 
 
+* Extended with the `ParsedownModify` class. Added two function - 
+    * `modifyVoid()` - modifies the `src` attribute for in-line `<img>` tags. For example, the images in this file are `<img>` tags wrapped in `<p>` tags. *This is intentional, and aids in editing.*
+    * `modifyInline()` - modifies the GitHub flavored images : `![an image](./path/to/image.jpg)`
+    * Utilizes the `ModifyElements` class to effect changes to the image tags.
+
+Here are the application features - 
+
 * Configurable - The following items are configurable via JSON formatted files which can be chosen using a query when the page is loaded into a browser.
     * GitHub Access -
         * Can be configured to retrieve the markdown file from a GitHub repository using the following options -
