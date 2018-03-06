@@ -173,7 +173,7 @@ NetBeans will allow you to set breakpoints and examine variables.
 
 ## Running on a Host
 
-Copy the files as described in [Running the Project](running-the-project) to a folder on your server's *document root*. To run the test render navigate your browser to - `http[s]://yourserver/yourfolder/index.php`. The default configuration is in `test.json`. To run a different JSON configuration file create one with the appropriate modifications (*use* `test.json` *as a starting point*) and copy it to the folder on your server. Then you can navigate to - `http[s]://yourserver/yourfolder/index.php?cfg=yourconfig`.
+Copy the files as described in [Running the Project](#running-the-project) to a folder on your server's *document root*. To run the test render navigate your browser to - `http[s]://yourserver/yourfolder/index.php`. The default configuration is in `test.json`. To run a different JSON configuration file create one with the appropriate modifications (*use* `test.json` *as a starting point*) and copy it to the folder on your server. Then you can navigate to - `http[s]://yourserver/yourfolder/index.php?cfg=yourconfig`.
 
 # Application Architecture
 
