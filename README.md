@@ -46,7 +46,7 @@ PHP was the primary technology used in this project. It provides all of the nece
 4. Copy the following into  `c:\xampp\htdocs\tests\mdrender` - 
 
 * Folders & contents - 
-    * `nbproject`
+    * `nbproject` - *not required if running on a hosting server*
     * `assets`
     * `mdimg`
 * Files - 
@@ -54,16 +54,24 @@ PHP was the primary technology used in this project. It provides all of the nece
     * `Parsedown.php`
     * `ParsedownModify.php`
     * `RenderConfig.php`
+    * `github.json`
     * `test.json`
     * `test.md`
 
-5. Run XAMPP and start Apache
+5. Run XAMPP and start Apache (*not necessary if running on a hosting server*)
 6. Open your browser and navigate to - `http://localhost/tests/mdrender/index.php`
-7. The page you see *should* look like the [test.md](./test.md) (*right-click and open in a new tab or window*) file.
+7. The page you see *should* look like this - 
+ 
+<p align="center">
+  <img src="./mdimg/mdrender-thumb-600x450.jpg" alt="Render Example" txt="Render Example" width="50%">
+</p>
+
+Here is the file in GitHub - [test.md](./test.md) (*right-click and open in a new tab or window*).
 
 ## Configuration
 
-**test.json :**
+**github.json :** Typically it will not be necessary to edit this file. It contains *GitHub* specific configuration items that are not likely to change often.
+
 ```
 {
     "reporaw"  : "https://raw.githubusercontent.com/",
@@ -73,7 +81,13 @@ PHP was the primary technology used in this project. It provides all of the nece
                     "application/vnd.github.v3+json",
                     "application/vnd.github.mercy-preview+json"
                  ],
+}
+```
 
+**test.json :** This file and its contents are specific to the Markdown file that you want to render. 
+
+```
+{
     "owner"    : "jxmot",
     "repo"     : "markdown-render",
     "branch"   : "master",
@@ -96,12 +110,12 @@ PHP was the primary technology used in this project. It provides all of the nece
 }
 ```
 
-It *should not be* necessary to edit the following - 
+It *should not be* necessary to edit the following in the `github.json` file - 
 * `reporaw`
 * `repoapi`
 * `accheader`
 
-The following can be edited as needed - 
+The following found in `test.json` can be edited as needed - 
 * `owner` - this is the owner of the repository where the markdown file to be rendered is residing.
 * `repo` - the repository name that contains the markdown file
 * `branch` - the branch that contains the markdown file
@@ -145,6 +159,10 @@ Add the section above to your `php.ini` file. Under XAMPP it is located at `C:\x
 * Then File->Open Project and navigate to `c:\xampp\htdocs\tests\mdrender` and open the project
 
 NetBeans will allow you to set breakpoints and examine variables.
+
+## Running on a Host
+
+Copy the files as described in [Running the Project](running-the-project) to a folder on your server's *document root*. To run the test render navigate your browser to - `http[s]://yourserver/yourfolder/index.php`. The default configuration is in `test.json`. To run a different JSON configuration file create one with the appropriate modifications (*use* `test.json` *as a starting point*) and copy it to the folder on your server. Then you can navigate to - `http[s]://yourserver/yourfolder/index.php?cfg=yourconfig`.
 
 # Application Architecture
 
