@@ -1,6 +1,8 @@
 {
     "reporaw"  : "https://raw.githubusercontent.com/",
 
+    "repogit"  : "https://github.com/",
+
     "repoapi"  : "https://api.github.com/",
     "accheader": [
                     "application/vnd.github.v3+json",
