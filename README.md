@@ -34,6 +34,7 @@ Here are the application features -
     * Additional Features   - 
         * "Go to Top" button - A simple "go to top" button that can be reused on any web page.
 * Modifies resource paths for images. The configurable GitHub settings are used in on-the-fly modification of image tags so that the `src` attributes point to the correct location.
+* Modifies resource paths for in-line links such as `[test.md](./test.md)` and adds `target="_blank"` to the resulting HTML link. The configurable GitHub settings are used in on-the-fly modification of image tags so that the `href` attributes point to the correct location.
 
 # Implementation Overview
 
@@ -83,6 +84,8 @@ Here is the file in GitHub - [test.md](./test.md) (*right-click and open in a ne
 {
     "reporaw"  : "https://raw.githubusercontent.com/",
 
+    "repogit"  : "https://github.com/",
+
     "repoapi"  : "https://api.github.com/",
     "accheader": [
                     "application/vnd.github.v3+json",
@@ -119,6 +122,7 @@ Here is the file in GitHub - [test.md](./test.md) (*right-click and open in a ne
 
 It *should not be* necessary to edit the following in the `github.json` file - 
 * `reporaw`
+* `repogit`
 * `repoapi`
 * `accheader`
 
