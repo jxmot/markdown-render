@@ -4,6 +4,7 @@ class RenderConfig {
 
     private $git;
     public $reporaw;
+    public $repogit;
     public $repoapi;
     public $accheader = array();
 
@@ -25,8 +26,9 @@ class RenderConfig {
     function __construct($cfgfile)
     {
         $this->git = json_decode(file_get_contents("./github.json"));
-        $this->reporaw = $this->git->reporaw;
-        $this->repoapi = $this->git->repoapi;
+        $this->reporaw   = $this->git->reporaw;
+        $this->repogit   = $this->git->repogit;
+        $this->repoapi   = $this->git->repoapi;
         $this->accheader = $this->git->accheader;
 
         if(!file_exists($cfgfile)) $cfgfile = "./test.json";
