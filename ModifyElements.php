@@ -66,6 +66,10 @@ class ModifyElements {
                         $src = str_replace("./", "", ($src . $linkBlock['element']['attributes']['href']));
                         $linkBlock['element']['attributes']['href'] = $src;
                         $linkBlock['element']['attributes']['target'] = "_blank";
+                    } else {
+                        if(strpos($linkBlock['element']['attributes']['href'], "http", 0) === 0) {
+                            $linkBlock['element']['attributes']['target'] = "_blank";
+                        }
                     }
                 }
             }
