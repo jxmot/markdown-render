@@ -19,9 +19,10 @@ class ModifyElements {
     function __construct($mdcfg)
     {
         $this->reporaw  = $mdcfg->reporaw;
-        $this->owner     = $mdcfg->owner;
-        $this->repo      = $mdcfg->repo;
-        $this->branch    = $mdcfg->branch;
+        $this->repogit  = $mdcfg->repogit;
+        $this->owner    = $mdcfg->owner;
+        $this->repo     = $mdcfg->repo;
+        $this->branch   = $mdcfg->branch;
     }
 
     public function imgModify(array $imgBlock) 
@@ -51,6 +52,25 @@ class ModifyElements {
             }
         }
         return $imgBlock;
+    }
+
+    public function linkModify($linkBlock)
+    {
+        if(isset($linkBlock['element'])) {
+            if($linkBlock['element']['name'] === 'a') {
+                // let's see if there's an 'href'
+                if(isset($linkBlock['element']['attributes']['href'])) {
+                    // see if the href starts with './'
+                    if(strpos($linkBlock['element']['attributes']['href'], "./", 0) === 0) {
+                        $src = $this->repogit . $this->owner . $this->pathsep . $this->repo . $this->pathsep . "blob" . $this->pathsep . $this->branch . $this->pathsep;
+                        $src = str_replace("./", "", ($src . $linkBlock['element']['attributes']['href']));
+                        $linkBlock['element']['attributes']['href'] = $src;
+                        $linkBlock['element']['attributes']['target'] = "_blank";
+                    }
+                }
+            }
+        }
+        return $linkBlock;
     }
 
     /*

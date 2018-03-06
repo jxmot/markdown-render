@@ -32,8 +32,11 @@ class ParsedownModify extends Parsedown {
             if(isset($this->pdModTagObj)) {
                 $Inline = $this->pdModTagObj->imgModify($inline);
             } else $Inline = $inline;
-        } else $Inline = $inline;
-
+        } else {
+            if($inline['element']['name'] === 'a') {
+                $Inline = $this->pdModTagObj->linkModify($inline);
+            } else $Inline = $inline;
+        }
         // Return result using modified values and allow the
         // parent to complete any necessary additional steps.
         return parent::modifyInline($Inline);

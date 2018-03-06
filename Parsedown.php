@@ -1146,10 +1146,14 @@ class Parsedown
 
         $Element['attributes']['href'] = str_replace(array('&', '<'), array('&amp;', '&lt;'), $Element['attributes']['href']);
 
-        return array(
+        $tmp = array(
             'extent' => $extent,
             'element' => $Element,
         );
+        // jxmot - done this way to aid in debugging
+        $tmp = $this->modifyInline($tmp);
+
+        return $tmp;
     }
 
     protected function inlineMarkup($Excerpt)
