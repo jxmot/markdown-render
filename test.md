@@ -6,21 +6,23 @@ A file used for testing the modifications made to the Parsedown class and the cl
 
 The images below are used in testing the ability to adjust the paths to point to the images' location. Three types linking are tested here - 
 
-* [Markdown Inline Image Link](#markdown-inline-image-link)
+* [Markdown Embedded Image](#markdown-embedded-image)
 * [Markdown Inline Resource Link](#markdown-inline-resource-link)
 * [Embedded HTML](#embedded-html)
 
-*Anchors are tested in the links above, requried a mondification to `Parsedown.php`*.
+*Anchors are tested in the links above, this required a modification to `Parsedown.php`*.
 
 **NOTES:** GitHub ignores any styling in embedded HTML except for `width` and `height` attributes. It will also convert any `<img>` tag to a link to the image. However if the `<img>` tag is wrapped in a `<p>` it will wrap the `<img>` in an `<a href=...>`.
 
-### Markdown Inline Image Link
+### Markdown Embedded Image
 
-Image link - `![Image, relative path](./mdimg/electric-globe-600x400.jpg)`
+Image Markdown - `![Image, relative path](./mdimg/electric-globe-600x400.jpg)`
 
 ![Image, relative path](./mdimg/electric-globe-600x400.jpg)
 
 ### Markdown Inline Resource Link
+
+Markdown Resource Link - `[github.json](./github.json)`
 
 [github.json](./github.json)
 
@@ -50,7 +52,7 @@ Image link - `![Image, relative path](./mdimg/electric-globe-600x400.jpg)`
 
 * Anchor Tags - clicking on the heading links should cause the rendered page to scroll to the identified position.
 
-* Inline Image Link - The `src` attribute will become an *absolute* path to the image **and** the `alt` attribute will be modified to be `"Image, absolute path"`.
+* Inline Image Link - The `src` attribute will become an *absolute* path to the image **and** the `alt` attribute will be modified to be `"Image, absolute path"`. **NOTE :** The `alt` attribute is not related to the `[Image, relative path]` portion of the Markdown Link.
 
 * Inline Resource Link - The `href` attribute will reference the *page* containing the resource on GitHub, and should open a new tab when clicked.
 
