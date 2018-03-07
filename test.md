@@ -52,7 +52,7 @@ Markdown Resource Link - `[github.json](./github.json)`
 
 * Anchor Tags - clicking on the heading links should cause the rendered page to scroll to the identified position.
 
-* Inline Image Link - The `src` attribute will become an *absolute* path to the image **and** the `alt` attribute will be modified to be `"Image, absolute path"`. **NOTE :** The `alt` attribute is not related to the `[Image, relative path]` portion of the Markdown Link.
+* Inline Image Link - The `src` attribute will become an *absolute* path to the image **and** the `alt` attribute will be modified to be `"Image, absolute path"`. **NOTE :** The `alt` attribute is not related to the `[Image, relative path]` portion of the Markdown Link. However the `title` attribute will contain the contents of `[Image, relative path]` and will be seen if hovered over.
 
 * Inline Resource Link - The `href` attribute will reference the *page* containing the resource on GitHub, and should open a new tab when clicked.
 
