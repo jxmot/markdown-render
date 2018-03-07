@@ -13,7 +13,7 @@ I had investegated a number of potential solutions and determined that [Parsedow
 
 The following features are *enhancements* to the operation of the original Parsedown - 
 
-* Extended with the `ParsedownModify` class. Added two function - 
+* Extended with the `ParsedownModify` class. Added two functions - 
     * `modifyVoid()` - modifies the `src` attribute for in-line `<img>` tags. For example, the images in this file are `<img>` tags wrapped in `<p>` tags. *This is intentional, and aids in editing.*
     * `modifyInline()` - modifies the GitHub flavored images : `![an image](./path/to/image.jpg)`
     * Utilizes the `ModifyElements` class to effect changes to the image tags.
@@ -32,13 +32,22 @@ Here are the application features -
             * Meta Description
             * Meta Keywords
     * Additional Features   - 
-        * "Go to Top" button - A simple "go to top" button that can be reused on any web page.
+        * "Go to Top" button - A simple "go to top" button that can be reused on any web page. It is implemented with the following - 
+            * `assets/css/totop.css`
+            * `assets/js/totop.js`
+            * an HTML button located at the bottom of the document space - `<button id="gototop" class="gototop" onclick="jumpToTop()" title="Go to top of page">&#9650;<br>top</button>`
 * Modifies resource paths for images. The configurable GitHub settings are used in on-the-fly modification of image tags so that the `src` attributes point to the correct location.
-* Modifies resource paths for in-line links such as `[test.md](./test.md)` and adds `target="_blank"` to the resulting HTML link. The configurable GitHub settings are used in on-the-fly modification of image tags so that the `href` attributes point to the correct location. **Note :** The code expects a *relative path* to the root of the repository.
+* Modifies resource paths for in-line links such as `[test.md](./test.md)` and adds `target="_blank"` to the resulting HTML link. The configurable GitHub settings are used in on-the-fly modification of link tags so that the `href` attributes point to the correct location. **Note :** The code expects a *relative path* to the root of the repository.
 
 # Implementation Overview
 
 PHP was the primary technology used in this project. It provides all of the necessary capabilities needed to access and render the markdown content to HTML.
+
+## Application Architecture
+
+<p align="center">
+  <img src="./mdimg/app-arch-simple.png" alt="Basic Architecture" txt="Basic Architecture" width="75%">
+</p>
 
 ## Requirements
 
@@ -143,6 +152,10 @@ The following found in `test.json` can be edited as needed -
 
 Additional JSON files can be created as needed and contain different repository information. To run the application using a different JSON file is accomplished using a *query*. For example if a JSON file named `myreadme.json` is to be used then point the browser to - `http://localhost/tests/mdrender/index.php?cfg=myreadme`.
 
+## Other Modifiable Items
+
+The bulk of the page styling is done with Bootstrap and a CSS file(`assets/css/document.css`). The coloring and some other style adjustments in that CSS file are tailored for use with the cyborg Bootstrap theme. 
+
 # Development and Debugging
 
 * Development Operating System - Windows 10 64bit
@@ -174,12 +187,6 @@ NetBeans will allow you to set breakpoints and examine variables.
 ## Running on a Host
 
 Copy the files as described in [Running the Project](#running-the-project) to a folder on your server's *document root*. To run the test render navigate your browser to - `http[s]://yourserver/yourfolder/index.php`. The default configuration is in `test.json`. To run a different JSON configuration file create one with the appropriate modifications (*use* `test.json` *as a starting point*) and copy it to the folder on your server. Then you can navigate to - `http[s]://yourserver/yourfolder/index.php?cfg=yourconfig`.
-
-# Application Architecture
-
-<p align="center">
-  <img src="./mdimg/app-arch-simple.png" alt="Basic Architecture" txt="Basic Architecture" width="75%">
-</p>
 
 # IMPORTANT Things to Note
 
