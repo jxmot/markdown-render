@@ -48,14 +48,17 @@ Image link - `![Image, relative path](./mdimg/electric-globe-600x400.jpg)`
 
 ### Test 1 Expected Results
 
+* Anchor Tags - clicking on the heading links should cause the rendered page to scroll to the identified position.
+
 * Inline Image Link - The `src` attribute will become an *absolute* path to the image **and** the `alt` attribute will be modified to be `"Image, absolute path"`.
+
+* Inline Resource Link - The `href` attribute will reference the *page* containing the resource on GitHub, and should open a new tab when clicked.
 
 * Embedded HTML - The `src` attribute will become an *absolute* path to the image, it will retain all other attributes that were present in the source.
 
-
 ## Test 2
 
-This test will be used to insure that all "void" elements (*as listed in* `Parsedown.php`*-*`$voidElements`).
+This test will be used to insure that other "void" elements (*as listed in* `Parsedown.php`*-*`$voidElements`) behave as expected.
 
 * `<hr>` test - 
 
