@@ -4,10 +4,13 @@ A file used for testing the modifications made to the Parsedown class and the cl
 
 ## Test 1
 
-The images below are used in testing the ability to adjust the paths to point to the images' location. Two types linking are tested here - 
+The images below are used in testing the ability to adjust the paths to point to the images' location. Three types linking are tested here - 
 
-* Markdown image link
-* Embedded HTML
+* [Markdown Inline Image Link](#markdown-inline-image-link)
+* [Markdown Inline Resource Link](#markdown-inline-resource-link)
+* [Embedded HTML](#embedded-html)
+
+*Anchors are tested in the links above, requried a mondification to `Parsedown.php`*.
 
 **NOTES:** GitHub ignores any styling in embedded HTML except for `width` and `height` attributes. It will also convert any `<img>` tag to a link to the image. However if the `<img>` tag is wrapped in a `<p>` it will wrap the `<img>` in an `<a href=...>`.
 
