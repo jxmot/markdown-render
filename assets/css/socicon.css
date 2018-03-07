@@ -1,0 +1,82 @@
+
+@media screen and (min-width:100px) {
+    .mdfooter {
+        margin-top: 2.5%;
+        margin-bottom: 2.5%;
+    }
+}
+
+@media screen and (min-width:400px) {
+    .mdfooter {
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+}
+
+@media screen and (min-width:900px) {
+    .mdfooter {
+        margin-top: 1.5%;
+        margin-bottom: 1.5%;
+    }
+}
+
+@media screen and (min-width:1199px) {
+    .mdfooter {
+        margin-top: 1%;
+        margin-bottom: 1%;
+    }
+}
+
+@media screen and (min-width:1399px) {
+    .mdfooter {
+        margin-top: 1%;
+        margin-bottom: 1%;
+    }
+}
+
+
+/*social icons*/
+.gi{
+    width: 32px;
+    height: 32px;
+    background: url(../img/soc-strip-32x32.png) left bottom no-repeat;
+    margin-right: 8px;
+    float: left;
+}
+
+.gi:hover{
+    width: 32px;
+    height: 32px;
+    background: url(../img/soc-strip-32x32.png) left top no-repeat;
+    float: left;
+}
+
+.in{
+    width: 32px;
+    height: 32px;
+    background: url(../img/soc-strip-32x32.png) -32px bottom no-repeat;
+    float: right;
+    margin-right: 8px;
+}
+
+.in:hover{
+    width: 32px;
+    height: 32px;
+    background: url(../img/soc-strip-32x32.png) -32px top no-repeat;
+    float: right;
+}
+
+.tw{
+    width: 32px;
+    height: 32px;
+    background: url(../img/soc-strip-32x32.png) -64px bottom no-repeat;
+    float: left;
+}
+
+.tw:hover{
+    width: 32px;
+    height: 32px;
+    background: url(../img/soc-strip-32x32.png) -64px top no-repeat;
+    float: left;
+}
+/*^social icons*/
