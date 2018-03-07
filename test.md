@@ -17,6 +17,10 @@ Image link - `![Image, relative path](./mdimg/electric-globe-600x400.jpg)`
 
 ![Image, relative path](./mdimg/electric-globe-600x400.jpg)
 
+### Markdown Inline Resource Link
+
+[github.json](./github.json)
+
 ### Embedded HTML
 
 **Centered using a `<p>` tag :**
