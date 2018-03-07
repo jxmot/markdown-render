@@ -32,21 +32,21 @@ Markdown Resource Link - `[github.json](./github.json)`
 
 ```
 <p align="center">
-  <img src="./mdimg/electric-globe-600x400.jpg" alt="sample image" txt="sample image" width="50%">
+  <img src="./mdimg/electric-globe-600x400.jpg" alt="sample image" title="sample image #1" width="50%">
 </p>
 ```
 
 <p align="center">
-  <img src="./mdimg/electric-globe-600x400.jpg" alt="sample image" txt="sample image" width="50%">
+  <img src="./mdimg/electric-globe-600x400.jpg" alt="sample image" title="sample image #1" width="50%">
 </p>
 
 **Just an `<img>` tag :**
 
 ```
-<img src="./mdimg/electric-globe-600x400.jpg" alt="sample image" txt="sample image" width="50%">
+<img src="./mdimg/electric-globe-600x400.jpg" alt="sample image" title="sample image #2" width="50%">
 ```
 
-<img src="./mdimg/electric-globe-600x400.jpg" alt="sample image" txt="sample image" width="50%">
+<img src="./mdimg/electric-globe-600x400.jpg" alt="sample image" title="sample image #2" width="50%">
 
 ### Test 1 Expected Results
 
@@ -56,7 +56,9 @@ Markdown Resource Link - `[github.json](./github.json)`
 
 * Inline Resource Link - The `href` attribute will reference the *page* containing the resource on GitHub, and should open a new tab when clicked.
 
-* Embedded HTML - The `src` attribute will become an *absolute* path to the image, it will retain all other attributes that were present in the source.
+* Embedded HTML - The `src` attribute will become an *absolute* path to the image. And it will retain all other attributes that were present in the source.
+
+**NOTE :** All rendered images should retain all attributes, including `title`.
 
 ## Test 2
 
