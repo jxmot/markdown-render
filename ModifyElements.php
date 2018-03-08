@@ -5,11 +5,11 @@
 */
 class ModifyElements {
 
-    private $pattern  = '/(\\w+)\s*=\\s*("[^"]*"|\'[^\']*\'|[^"\'\\s>]*)/';
-    private $attrs    = array();
-    private $pathsep  = "/";
+    private $pattern = '/(\\w+)\s*=\\s*("[^"]*"|\'[^\']*\'|[^"\'\\s>]*)/';
+    private $attrs   = array();
+    private $pathsep = "/";
 
-    public $validtags = array('img');
+    public $validvoids = array('img');
 
     private $reporaw;
     private $owner;
@@ -36,6 +36,8 @@ class ModifyElements {
                     // rebuild the "src" attribute
                     $src = $this->reporaw . $this->owner . $this->pathsep . $this->repo . $this->pathsep . $this->branch . $this->pathsep;
                     // remove leading "./" from $this->attrs['src']
+                    // To Do: !!! Must also take into account paths such as
+                    // `../../path` and similar. Check "starts with" modifiying!!!!
                     $src = str_replace("./", "", ($src . $this->attrs['src']));
                     // rebuild the markup
                     $this->attrs['src'] = $src;
@@ -64,6 +66,10 @@ class ModifyElements {
                     if(strpos($linkBlock['element']['attributes']['href'], "./", 0) === 0) {
                         $src = $this->repogit . $this->owner . $this->pathsep . $this->repo . $this->pathsep . "blob" . $this->pathsep . $this->branch . $this->pathsep;
                         $src = str_replace("./", "", ($src . $linkBlock['element']['attributes']['href']));
+                        $linkBlock['element']['attributes']['data-orig'] = $linkBlock['element']['attributes']['href'];
+                        if(isset($linkBlock['element']['text'])) {
+                            $linkBlock['element']['attributes']['data-text'] = $linkBlock['element']['text'];
+                        }
                         $linkBlock['element']['attributes']['href'] = $src;
                         $linkBlock['element']['attributes']['target'] = "_blank";
                     } else {
@@ -115,7 +121,7 @@ class ModifyElements {
     }
 
     /* **********************************************************************
-        rebuildElement() - Rebuilds the element with the rr.
+        rebuildElement() - Rebuilds the element.
 
         Returns - The HTML element rebuilt from the tag and
         its attributes.
