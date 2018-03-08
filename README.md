@@ -5,7 +5,7 @@ A PHP project that renders markdown files from GitHub repositories. Based on Par
 
 Initially I was looking for a way to render *markdown* files for a blog project I was working on. The intent at that time was to be able to render small markdown files that were to be used as blog entries.
 
-However, later on I found that I wanted to render my GitHub README and project documentation files for use on my personal website. And the intent there was to have the ability to showcase README content without have to direct visitors to my GitHub account.
+However, later on I found that I wanted to render my GitHub README and project documentation files for use on my personal website. And the intent there was to have the ability to showcase README content without having to direct visitors to my GitHub account.
 
 I had investegated a number of potential solutions and determined that [Parsedown](http://parsedown.org) would work best for my applications. 
 
@@ -16,7 +16,7 @@ The following features are *enhancements* to the operation of the original Parse
 * Extended with the `ParsedownModify` class. Added two functions - 
     * `modifyVoid()` - modifies the `src` attribute for in-line `<img>` tags. For example, the images in this file are `<img>` tags wrapped in `<p>` tags. *This is intentional, and aids in editing.*
     * `modifyInline()` - modifies the GitHub flavored images : `![an image](./path/to/image.jpg)`
-    * Utilizes the `ModifyElements` class to effect changes to the image tags.
+    * Utilizes the `ModifyElements` class to effect changes to the image and link tags.
 
 Here are the application features - 
 
