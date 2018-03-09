@@ -1,5 +1,5 @@
 # markdown-render
-A PHP project that renders markdown files from GitHub repositories. Based on Parsedown (http://parsedown.org)
+A PHP project that renders markdown files from GitHub repositories. Based on [Parsedown](http://parsedown.org)
 
 # History
 
@@ -21,7 +21,7 @@ The following features are *enhancements* to the operation of the original Parse
 Here are the application features - 
 
 * Configurable - The following items are configurable via JSON formatted files which can be chosen using a query when the page is loaded into a browser.
-    * GitHub Access -
+    * GitHub Access - Note that this application does **not** require a *Personal access token*.
         * Can be configured to retrieve the markdown file from a GitHub repository using the following options -
             * Repository Name
             * Owner
@@ -49,11 +49,15 @@ PHP was the primary technology used in this project. It provides all of the nece
   <img src="./mdimg/app-arch-simple.png" alt="Basic Architecture" txt="Basic Architecture" width="75%">
 </p>
 
-## Requirements
+## Minimum Requirements
 
 * PHP - Version 5.6 was used in development and testing. It was chosen because *standard hosting* was the targeted platform.
 * Web Server - This project can be hosted on a internet accessible host. However for initial use and testing a local server such as [XAMPP](https://www.apachefriends.org/index.html) is recommended. This project was developed and tested on XAMPP - [xampp-win32-5.6.31-0-VC11-installer.exe](https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/5.6.31/xampp-win32-5.6.31-0-VC11-installer.exe/download)
 * Web Browser - My preferred browser is *Chrome*.
+
+### Extra
+
+I used Netbeans 8.2 for the majority of my debugging. It works very well with PHP and Chrome.
 
 # Running the Project
 
@@ -192,6 +196,7 @@ Copy the files as described in [Running the Project](#running-the-project) to a 
 
 The version of *Parsedown* used in this repository is realatively old. It was created *around* May 2017. I estimate that the version would have been 1.6.3, however the author(s) did not update the version number string in `Parsedown.php`.
 
-There have been a large number of changes made at [Parsedown](https://github.com/erusev/parsedown) since the time when the current version was first obtained. ~~I plan on updating the local copy of Parsedown after activivity has settled down in the Parsedown repository~~.
+There have been a large number of changes made at [Parsedown](https://github.com/erusev/parsedown) since the time when the current version was first obtained. ~~I plan on updating the local copy of Parsedown after activivity has settled down in the Parsedown repository~~. 
 
+**UPDATE 2018-0308 :** After much (very much) tinkering around with some "updated" version of parsedown I've decided that the version I'm using now will have to do. There were some changes that severly broke what I'm trying to do. Since the original code **is not commented sufficiently** it became increasing difficult to determine what exactly has changed and what the intent was. The problems were evident in embedded images, for example - `![some text](path/to/image.jpg)`. The 1.7.0 and 1.7.1 versions of Parsedown treated those *links* and processed them as such. During that process they're converted back to an embedded image. After I studied the Parsdown code in detail it appeared to me that the reason for that was a "fudge". Which was manifested as a call to inlineImage() and then from within that function to call inlineLink(). By calling inlineLink() the internals of the element array were manipulated to look like a `<a>` tag.
 
