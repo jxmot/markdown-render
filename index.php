@@ -38,11 +38,12 @@ if($pageconfig->genstatic === true) ob_start();
     <!-- page styling -->
     <link rel="stylesheet" href="./assets/css/document.css">
     <link rel="stylesheet" href="./assets/css/totop.css">
+    <link rel="stylesheet" href="./assets/css/socicon.css">
     <!-- jquery, etc -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body class="page-nocopy">
+<body class="page-nocopy container-fluid">
     <!-- Document -->
     <div class="row doc-body">
         <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
@@ -60,10 +61,14 @@ echo "\n" . $render->text($file) . "\n";
     <!-- ^Document -->
     <!-- Page Footer -->
     <footer class="navbar navbar-default navbar-fixed-bottom">
-        <div class="container text-center">
-            <p class="navbar-text col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                2017 &copy; James Motyl
+        <div class="text-center">
+            <div class="mdfooter col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12">
+                <p>
+                    <a href="https://github.com/jxmot/" target="_blank" class="gi" title="See me on GitHub!"></a>
+                    &nbsp;2017 &copy; James Motyl&nbsp;
+                    <a href="https://www.linkedin.com/in/jim-motyl/" target="_blank" class="in" title="See me on LinkedIn!"></a>
             </p>
+            </div>
         </div>
     </footer>
     <!-- ^Page Footer -->
