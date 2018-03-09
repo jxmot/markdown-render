@@ -36,7 +36,7 @@
 
 
 /*social icons*/
-.gi{
+.gh{
     width: 32px;
     height: 32px;
     background: url(../img/soc-strip-32x32.png) left bottom no-repeat;
@@ -44,7 +44,7 @@
     float: left;
 }
 
-.gi:hover{
+.gh:hover{
     width: 32px;
     height: 32px;
     background: url(../img/soc-strip-32x32.png) left top no-repeat;
