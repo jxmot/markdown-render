@@ -1,0 +1,10 @@
+{
+    "footer": true,
+    "footertxt": "&nbsp;2017 &copy; James Motyl&nbsp;",
+    "socicon": true,
+    "socitems": [
+        { "url":"https://github.com/jxmot/", "class":"gh", "target":"_blank", "title":"See me on GitHub!" },
+        { "url":"https://www.linkedin.com/in/jim-motyl/", "class":"in", "target":"_blank", "title":"See me on LinkedIn!" }
+    ],
+    "totop": true
+}
