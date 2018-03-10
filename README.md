@@ -31,11 +31,6 @@ Here are the application features -
         * Meta Tags - Can be configured in the JSON file or can be retrieved from the GitHub repository.
             * Meta Description
             * Meta Keywords
-    * Additional Features   - 
-        * "Go to Top" button - A simple "go to top" button that can be reused on any web page. It is implemented with the following - 
-            * `assets/css/totop.css`
-            * `assets/js/totop.js`
-            * an HTML button located at the bottom of the document space - `<button id="gototop" class="gototop" onclick="jumpToTop()" title="Go to top of page">&#9650;<br>top</button>`
 * Modifies resource paths for images. The configurable GitHub settings are used in on-the-fly modification of image tags so that the `src` attributes point to the correct location.
 * Modifies resource paths for in-line links such as `[test.md](./test.md)` and adds `target="_blank"` to the resulting HTML link. The configurable GitHub settings are used in on-the-fly modification of link tags so that the `href` attributes point to the correct location. **Note :** The code expects a *relative path* to the root of the repository.
 
@@ -155,6 +150,31 @@ The following found in `test.json` can be edited as needed -
 * `statname` - the name of the generated static HTML file, since the rendered file will use the CSS and JS files it is best to save it in the current location (i.e. `./`)
 
 Additional JSON files can be created as needed and contain different repository information. To run the application using a different JSON file is accomplished using a *query*. For example if a JSON file named `myreadme.json` is to be used then point the browser to - `http://localhost/tests/mdrender/index.php?cfg=myreadme`.
+
+**mdrenderpage.json :** There are additional features that are configurable via a another JSON file  - 
+
+```
+{
+    "footer": true,
+    "footertxt": "&nbsp;2017 &copy; James Motyl&nbsp;",
+    "socicon": true,
+    "socitems": [
+        { "url":"https://github.com/jxmot/", "class":"gh", "target":"_blank", "title":"See me on GitHub!" },
+        { "url":"https://www.linkedin.com/in/jim-motyl/", "class":"in", "target":"_blank", "title":"See me on LinkedIn!" }
+    ],
+    "totop": true
+}
+```
+
+* `footer` - If `true` a fixed position footer will be added to the page and the following items can also be configured. However if it is `false`, non existent, or if the file is missing then there will be no footer.
+    * `footertxt` - text centered in the footer
+    * `socicon` - if `true` then both social icons will be seen 
+        * `socitems[0]` - 
+        * `socitems[1]` - 
+* `totop` -  "Go to Top" button, a simple "go to top" button that can be reused on any web page. It is implemented with the following - 
+    * `assets/css/totop.css`
+    * `assets/js/totop.js`
+    * an HTML button located at the bottom of the document space - `<button id="gototop" class="gototop" onclick="jumpToTop()" title="Go to top of page">&#9650;<br>top</button>`
 
 ## Other Modifiable Items
 
