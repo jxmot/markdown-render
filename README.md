@@ -169,8 +169,8 @@ Additional JSON files can be created as needed and contain different repository 
 * `footer` - If `true` a fixed position footer will be added to the page and the following items can also be configured. However if it is `false`, non existent, or if the file is missing then there will be no footer.
     * `footertxt` - text centered in the footer
     * `socicon` - if `true` then both social icons will be seen 
-        * `socitems[0]` - 
-        * `socitems[1]` - 
+        * `socitems[0]` - used for the icon on the left side
+        * `socitems[1]` - used for the icon on the right side
 * `totop` -  "Go to Top" button, a simple "go to top" button that can be reused on any web page. It is implemented with the following - 
     * `assets/css/totop.css`
     * `assets/js/totop.js`
