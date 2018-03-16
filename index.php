@@ -122,4 +122,4 @@ if($pageconfig->genstatic === true) {
     fwrite($fh,$content);
     fclose($fh);
 }
-
+?>
