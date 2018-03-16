@@ -11,10 +11,13 @@ if(array_key_exists("cfg", $query_array)) {
 
 $cfgfile = $choice . ".json";
 
-$pageconfig = new RenderConfig($cfgfile);
-$ElementModifier = new ModifyElements($pageconfig);
+global $g_pageconfig;
+
+$g_pageconfig = new RenderConfig($cfgfile);
+$ElementModifier = new ModifyElements($g_pageconfig);
 $render = new ParsedownModify($ElementModifier);
 
+// generic page options - footer, social icons, "to top" button, etc
 global $g_mdpage;
 $mdopt = "./mdrenderpage.json";
 if(file_exists($mdopt))
@@ -23,7 +26,7 @@ if(file_exists($mdopt))
 }
 
 // generate a static file?
-if($pageconfig->genstatic === true) ob_start();
+if($g_pageconfig->genstatic === true) ob_start();
 
 ?>
 <!DOCTYPE html>
@@ -33,12 +36,13 @@ if($pageconfig->genstatic === true) ob_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <?php
-    if($pageconfig->metadesc !== "") echo "    <meta name=\"description\" content=\"$pageconfig->metadesc\"/>\n";
-    if($pageconfig->metakeyw !== "") echo "    <meta name=\"keywords\" content=\"$pageconfig->metakeyw\"/>\n";
-    if($pageconfig->metaauth !== "") echo "    <meta name=\"author\" content=\"$pageconfig->metaauth\"/>\n";
+    if($g_pageconfig->metadesc !== "") echo "    <meta name=\"description\" content=\"$g_pageconfig->metadesc\"/>\n";
+    if($g_pageconfig->metakeyw !== "") echo "    <meta name=\"keywords\" content=\"$g_pageconfig->metakeyw\"/>\n";
+    if($g_pageconfig->metaauth !== "") echo "    <meta name=\"author\" content=\"$g_pageconfig->metaauth\"/>\n";
 ?>
 
-    <title><?php echo $pageconfig->pagetitle; ?></title>
+    <title><?php echo $g_pageconfig->pagetitle; ?></title>
+
     <!-- Bootstrap / fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cyborg/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700">
@@ -66,7 +70,7 @@ if($pageconfig->genstatic === true) ob_start();
         <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
             <!-- Rendered Document -->
 <?php
-$file = file_get_contents($pageconfig->mdfile, true);
+$file = file_get_contents($g_pageconfig->mdfile, true);
 echo "\n" . $render->text($file) . "\n";
 ?>
             <!-- ^Rendered Document -->
@@ -99,6 +103,11 @@ echo "\n" . $render->text($file) . "\n";
             echo "                    " . $g_mdpage->footertxt . "\n";
         }
         echo "                    <a href=".$g_mdpage->socitems[1]->url." target=".$g_mdpage->socitems[1]->target." class=".$g_mdpage->socitems[1]->class." title=".$g_mdpage->socitems[1]->title."></a>\n";
+    } else {
+        if(isset($g_mdpage->footertxt))
+        {
+            echo "                    " . $g_mdpage->footertxt . "\n";
+        }
     }
 ?>
                 </p>
@@ -115,10 +124,10 @@ echo "\n" . $render->text($file) . "\n";
 </html>
 <?php
 // generate a static file?
-if($pageconfig->genstatic === true) {
+if($g_pageconfig->genstatic === true) {
     $content = ob_get_contents();
     ob_end_flush();
-    $fh = fopen("$pageconfig->statname",'w'); 
+    $fh = fopen("$g_pageconfig->statname",'w'); 
     fwrite($fh,$content);
     fclose($fh);
 }
