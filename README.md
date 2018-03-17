@@ -28,6 +28,7 @@ Here are the application features -
             * Branch
             * Markdown file - The file can be local or hosted on GitHub
     * Generates Static HTML - An optional setting controls this feature, the output file name is also configurable.
+        * Open Graph Meta Tags - 
         * Meta Tags - Can be configured in the JSON file or can be retrieved from the GitHub repository.
             * Meta Description
             * Meta Keywords
@@ -124,7 +125,10 @@ Here is the file in GitHub - [test.md](./test.md) (*right-click and open in a ne
     "metaauth" : "https://github.com/jxmot",
 
     "genstatic": false,
-    "statname" : "./test.html"
+    "statname" : "./test.html",
+
+    "oghead": false,
+    "ogjson": "./oghead-example.json"
 }
 ```
 
@@ -176,6 +180,70 @@ Additional JSON files can be created as needed and contain different repository 
     * `assets/js/totop.js`
     * an HTML button located at the bottom of the document space - `<button id="gototop" class="gototop" onclick="jumpToTop()" title="Go to top of page">&#9650;<br>top</button>`
 
+**oghead-example.json :** This file contains the required content for the "[Open Graph](http://ogp.me/)"  
+<a href="http://ogp.me/" target="_blank">"Open Graph"</a> protocol. I used it on pages shared with Twitter and LinkedIn.  
+
+In `test.json` - 
+
+```
+{
+# not related to other settings in this file
+
+
+    "genstatic": true,
+    "statname" : "./test.html",
+
+    "oghead": false,
+    "ogjson": "./oghead-example-test.json"
+}
+```
+
+The Opeh Graph tags will not be rendered unless `genstatic` is true. The configuration for the meta tag contents is in `oghead-example-test.json` - 
+
+```
+{
+    "prefix": "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#",
+
+    "twitter": {
+        "card": "summary_large_image",
+        "site": "@YourTwitterHandle",
+        "title": "Page or Site Title",
+        "url": "https://www.your-web-site.com/",
+        "description": "A brief description of your page or site, but don't make it too long.",
+        "creator": "@YourTwitterHandle",
+
+        "image": "http://via.placeholder.com/",
+
+        "use_ph": true,
+        "bgcolor_ph": "381aff",
+        "fgcolor_ph": "6eff3d",
+        "text_ph": "This is a sample thumbnail",
+
+        "imagewidth": "1556",
+        "imageheight": "778"
+    },
+
+    "og": {
+        "image": "http://via.placeholder.com/",
+
+        "use_ph": true,
+        "bgcolor_ph": "403dff",
+        "fgcolor_ph": "000000",
+        "text_ph": "This is a sample thumbnail",
+
+        "imagetype": "image/jpg",
+        "imagewidth": "1200",
+        "imageheight": "796",
+        "url": "https://www.your-web-site.com/",
+        "title": "Page or Site Title",
+        "description": "A brief description of your page or site, but don't make it too long.",
+        "type": "website"
+    }
+}
+```
+
+
+
 ## Other Modifiable Items
 
 The bulk of the page styling is done with Bootstrap and a CSS file(`assets/css/document.css`). The coloring and some other style adjustments in that CSS file are tailored for use with the cyborg Bootstrap theme. 
@@ -211,6 +279,12 @@ NetBeans will allow you to set breakpoints and examine variables.
 ## Running on a Host
 
 Copy the files as described in [Running the Project](#running-the-project) to a folder on your server's *document root*. To run the test render navigate your browser to - `http[s]://yourserver/yourfolder/index.php`. The default configuration is in `test.json`. To run a different JSON configuration file create one with the appropriate modifications (*use* `test.json` *as a starting point*) and copy it to the folder on your server. Then you can navigate to - `http[s]://yourserver/yourfolder/index.php?cfg=yourconfig`.
+
+### A Good Trick to Know
+
+Are you familiar with the `.htaccess` file on your web server?
+
+**
 
 # IMPORTANT Things to Note
 
