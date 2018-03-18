@@ -23,6 +23,9 @@ class RenderConfig {
     public $genstatic;
     public $statname;
 
+    public $oghead;
+    public $ogjson;
+
     function __construct($cfgfile)
     {
         $this->git = json_decode(file_get_contents("./github.json"));
@@ -63,6 +66,9 @@ class RenderConfig {
         // generate a static file?
         $this->genstatic = $this->cfg->genstatic;
         $this->statname  = ($this->genstatic === true ? $this->cfg->statname : "");
+
+        $this->oghead = $this->cfg->oghead;
+        $this->ogjson = ($this->oghead === true ? $this->cfg->ogjson : "");
     }
 
     private function configMeta()
