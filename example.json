@@ -4,9 +4,9 @@
     "branch"   : "master",
 
     "mdfilerem": false,
-    "mdfile"   : "./README.md",
+    "mdfile"   : "README.md",
 
-    "pagetitle": "desired page tile goes here",
+    "pagetitle": "desired page title goes here",
 
     "gitdesc"  : false,
     "metadesc" : "optional description, remove if not used",
@@ -17,5 +17,8 @@
     "metaauth" : "optional author, remove if not used",
 
     "genstatic": false,
-    "statname" : "./static.html"
+    "statname" : "./static.html",
+
+    "oghead": false,
+    "ogjson": "./oghead-example-test.json"
 }
