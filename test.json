@@ -12,13 +12,10 @@
     "metadesc" : "",
 
     "gittopics": false,
-    "metakeyw" : "test,mdrender,markdown",
+    "metakeyw" : "",
 
     "metaauth" : "https://github.com/jxmot",
 
-    "genstatic": true,
-    "statname" : "./test.html",
-
-    "oghead": true,
-    "ogjson": "./_oghead-test.json"
+    "genstatic": false,
+    "statname" : "./test.html"
 }
