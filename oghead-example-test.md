@@ -1,20 +1,20 @@
 # oghead-example-test.json
 
-There are several *sections* in the JSON file, they are grouped as - 
+There are a couple of *sections* in the JSON file, they are grouped as - 
 
-* `twitter` :<br>
+* `twitter` : Twitter Card sharing<br>
     #1 Link title, URL, and description<br>
     #2 Twitter-site owner of the account posting the link, card type, and creator (also your twitter handle)<br>
     #3 [Placeholder](https://placeholder.com/) enable flag, URL base, foreground & background colors, text, image width & height, and image type<br>
     #4 Link image URL, image width & height<br>
     
-* `og` : This is for all other non-twitter shares :<br>
+* `og` : This is for all other non-twitter shares<br>
     #1 Link title, URL, and description<br>
     #2 Site type and name<br>
     #3 [Placeholder](https://placeholder.com/) enable flag, URL base, foreground & background colors, text, image width & height, and image type<br>
     #4 Link image URL, image width & height<br>
 
-The contents shown below are for *testing purposes __only__*. 
+The JSON key values shown below are for *testing purposes __only__*. 
 
 ## Configuration Details
 
@@ -169,14 +169,25 @@ The samples below were the results of the meta tags that were created with the c
   <img src="./mdimg/linkedin-sample-553x578.jpg" alt="LinkedIn Render Example" txt="LinkedIn Render Example" width="50%">
 </p>
 
+# Files in this Repository
+
+* Referenced in this document - 
+    * `oghead-example-test.json` - 
+        * static image files, those images were obtained from [PlaceIMG](https://placeimg.com/)
+
+* Closely Related Files -
+    * `test.json` - the `ogjson` field in this file contains the path and file name to JSON file containing the Open Graph configuration as described in this document.
+    * `head.php` - renders the Open Graph meta tags, also renders additional `<head>` tag contents.
+    * `index.php` - includes `head.php`
+
 # Useful Resources
 
 * [About Twitter Cards](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards)
-    * [Card Validator](https://cards-dev.twitter.com/validator) 
-* [The Open Graph protocol](http://ogp.me/)
+    * [Card Validator](https://cards-dev.twitter.com/validator) - Twitter card validator
+* [The Open Graph protocol](http://ogp.me/) - documentation
 * [Facebook Open Graph Object Debugger](https://developers.facebook.com/tools/debug/og/object/)
-* [Social Debug](http://socialdebug.com/)
+* [Social Debug](http://socialdebug.com/) - tests against Facebook, Twitter, Google+, and LinkedIn and "grades" the results.
 
 # What's Next?
 
-What's been described here is only a small portion of the capabilities and use of Open Graph. I plan on exploring everything else Open Graph can do and I will update this document and it's associated application code  I learn more. 
+What's been described here is only a small portion of the capabilities and use of Open Graph. I plan on exploring everything else Open Graph can do and I will update this document and it's associated application code  as I learn more. 
