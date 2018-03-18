@@ -30,41 +30,14 @@ if($g_pageconfig->genstatic === true) ob_start();
 
 ?>
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<html lang="en-us">
 <?php
-    if($g_pageconfig->metadesc !== "") echo "    <meta name=\"description\" content=\"$g_pageconfig->metadesc\"/>\n";
-    if($g_pageconfig->metakeyw !== "") echo "    <meta name=\"keywords\" content=\"$g_pageconfig->metakeyw\"/>\n";
-    if($g_pageconfig->metaauth !== "") echo "    <meta name=\"author\" content=\"$g_pageconfig->metaauth\"/>\n";
+include "./head.php"
 ?>
-
-    <title><?php echo $g_pageconfig->pagetitle; ?></title>
-
-    <!-- Bootstrap / fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cyborg/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700">
-    <!-- page styling -->
-    <link rel="stylesheet" href="./assets/css/document.css">
-
-<?php
-    if(isset($g_mdpage->totop) && ($g_mdpage->totop === true))
-    {
-        echo '<link rel="stylesheet" href="./assets/css/totop.css">';
-    }
-
-    if(isset($g_mdpage->socicon) && ($g_mdpage->socicon === true))
-    {
-        echo '<link rel="stylesheet" href="./assets/css/socicon.css">';
-    }
-?>
-    <!-- jquery, etc -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+<!--
 <body class="page-nocopy container-fluid">
+-->
+<body class="container-fluid">
     <!-- Document -->
     <div class="row doc-body">
         <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
