@@ -26,7 +26,7 @@ Use this as your `prefix` attribute for the `<head>` tag when using Open Graph m
 ```
 ### Twitter
 <i id="twcard"></i>
-**#1 Link title, URL, and description**<br>
+**#1 Twitter Card : Link title, URL, and description**<br>
 
 **`title`** : This is displayed as the Twitter Card title. See [Output Examples](#output-examples) to see where it shows up.<br>
 **`url`** : The URL to the site or page that clicking the link will bring you to.<br>
@@ -95,10 +95,6 @@ As an *alternative* to static images you can use *placeholder* images. There are
 **#1 Link title, URL, and description**<br>
 
 Please see the [Twitter Card section](#twcard) for details.
-
-**`title`** : This is displayed as the Twitter Card title. See [Output Examples](#output-examples) to see where it shows up.<br>
-**`url`** : The URL to the site or page that clicking the link will bring you to.<br>
-**`description`** : A brief description, shown under the `title` on the link.<br>
 
 ```
     "og": {
@@ -183,3 +179,4 @@ The samples below were the results of the meta tags that were created with the c
 
 # What's Next?
 
+What's been described here is only a small portion of the capabilities and use of Open Graph. I plan on exploring everything else Open Graph can do and I will update this document and it's associated application code  I learn more. 
