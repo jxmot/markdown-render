@@ -17,5 +17,8 @@
     "metaauth" : "https://github.com/jxmot",
 
     "genstatic": false,
-    "statname" : "./test.html"
+    "statname" : "./test.html",
+
+    "oghead": false,
+    "ogjson": "./oghead-example-test.json"
 }
