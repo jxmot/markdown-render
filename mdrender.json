@@ -6,6 +6,7 @@
     "mdfilerem": true,
     "mdfile"   : "README.md",
 
+
     "pagetitle": "markdown-render - README",
 
     "gitdesc"  : true,
@@ -17,5 +18,8 @@
     "metaauth" : "https://github.com/jxmot",
 
     "genstatic": false,
-    "statname" : "./mdrender.html"
+    "statname" : "./mdrender.html",
+
+    "oghead": false,
+    "ogjson": "./oghead-example-test.json"
 }
