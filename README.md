@@ -49,7 +49,7 @@ PHP was the primary technology used in this project. It provides all of the nece
 
 * PHP - Version 5.6 was used in development and testing. It was chosen because *standard hosting* was the targeted platform.
 * Web Server - This project can be hosted on a internet accessible host. However for initial use and testing a local server such as [XAMPP](https://www.apachefriends.org/index.html) is recommended. This project was developed and tested on XAMPP - [xampp-win32-5.6.31-0-VC11-installer.exe](https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/5.6.31/xampp-win32-5.6.31-0-VC11-installer.exe/download)
-* Web Browser - My preferred browser is *Chrome*.
+* Web Browser - My preferred development browser is *Chrome*.
 
 ### Extra
 
@@ -103,6 +103,12 @@ Here is the file in GitHub - [test.md](./test.md) (*right-click and open in a ne
 }
 ```
 
+It *should not be* necessary to edit the following in the `github.json` file - 
+* `reporaw` - base URL for accessing *raw* GitHub files
+* `repogit` - base URL for accessing GitHub 
+* `repoapi` - base URL for accessing the GitHub API
+* `accheader` - an array of two `Accept` headers, selected in code for specific API calls.
+
 **test.json :** This file and its contents are specific to the Markdown file that you want to render. 
 
 ```
@@ -120,23 +126,17 @@ Here is the file in GitHub - [test.md](./test.md) (*right-click and open in a ne
     "metadesc" : "",
 
     "gittopics": false,
-    "metakeyw" : "",
+    "metakeyw" : "test,mdrender,markdown",
 
     "metaauth" : "https://github.com/jxmot",
 
-    "genstatic": false,
+    "genstatic": true,
     "statname" : "./test.html",
 
-    "oghead": false,
-    "ogjson": "./oghead-example.json"
+    "oghead": true,
+    "ogjson": "./oghead-example-test.json"
 }
 ```
-
-It *should not be* necessary to edit the following in the `github.json` file - 
-* `reporaw`
-* `repogit`
-* `repoapi`
-* `accheader`
 
 The following found in `test.json` can be edited as needed - 
 * `owner` - this is the owner of the repository where the markdown file to be rendered is residing.
@@ -152,6 +152,8 @@ The following found in `test.json` can be edited as needed -
 * `metaauth` - optional, fills in the meta author tag if there if it has text in it
 * `genstatic` - if **`true`** the application will create a static HTML file from the rendered output.
 * `statname` - the name of the generated static HTML file, since the rendered file will use the CSS and JS files it is best to save it in the current location (i.e. `./`)
+* `oghead` - if **`true`** then meta tags containing *Open Graph* protocol data will be included within the `<head>` tags. **NOTE :** `genstatic` must be **`true`**, otherwise this field is ignored
+* `ogjson` - the path + name of the configuration file which contains the data for the Open Graph meta tags
 
 Additional JSON files can be created as needed and contain different repository information. To run the application using a different JSON file is accomplished using a *query*. For example if a JSON file named `myreadme.json` is to be used then point the browser to - `http://localhost/tests/mdrender/index.php?cfg=myreadme`.
 
@@ -180,8 +182,7 @@ Additional JSON files can be created as needed and contain different repository 
     * `assets/js/totop.js`
     * an HTML button located at the bottom of the document space - `<button id="gototop" class="gototop" onclick="jumpToTop()" title="Go to top of page">&#9650;<br>top</button>`
 
-**oghead-example.json :** This file contains the required content for the "[Open Graph](http://ogp.me/)"  
-<a href="http://ogp.me/" target="_blank">"Open Graph"</a> protocol. I used it on pages shared with Twitter and LinkedIn.  
+**oghead-example-test.json :** This file contains the required content for the "[Open Graph](http://ogp.me/)" protocol. I used it on pages shared with Twitter and LinkedIn. 
 
 In `test.json` - 
 
@@ -193,56 +194,91 @@ In `test.json` -
     "genstatic": true,
     "statname" : "./test.html",
 
-    "oghead": false,
+    "oghead": true,
     "ogjson": "./oghead-example-test.json"
 }
 ```
 
-The Opeh Graph tags will not be rendered unless `genstatic` is true. The configuration for the meta tag contents is in `oghead-example-test.json` - 
+The Opeh Graph tags will not be rendered unless `genstatic` **and** `oghead` are true. The configuration for the meta tag contents is in `oghead-example-test.json` - 
 
 ```
 {
     "prefix": "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#",
 
     "twitter": {
-        "card": "summary_large_image",
-        "site": "@YourTwitterHandle",
         "title": "Page or Site Title",
-        "url": "https://www.your-web-site.com/",
-        "description": "A brief description of your page or site, but don't make it too long.",
+        "url": "https://github.com/jxmot/markdown-render",
+        "description": "A brief description of your page or site, but don't make it too long. About this long should be good.",
+
+        "site": "@YourTwitterHandle",
+        "card": "summary_large_image",
         "creator": "@YourTwitterHandle",
 
-        "image": "http://via.placeholder.com/",
-
-        "use_ph": true,
+        "use_ph": false,
+        "image_ph": "http://via.placeholder.com/",
         "bgcolor_ph": "381aff",
         "fgcolor_ph": "6eff3d",
-        "text_ph": "This is a sample thumbnail",
+        "text_ph": "some_text_goes_here",
+        "imagewidth_ph": "1556",
+        "imageheight_ph": "778",
+        "imagetype_ph": "jpg",
 
-        "imagewidth": "1556",
-        "imageheight": "778"
+        "image": "https://raw.githubusercontent.com/jxmot/markdown-render/master/assets/img/placeimg_1000_800_arch-01.jpg",
+        "imagewidth": "1000",
+        "imageheight": "800"
     },
 
     "og": {
-        "image": "http://via.placeholder.com/",
+        "title": "Page or Site Title",
+        "url": "https://github.com/jxmot/markdown-render",
+        "description": "A brief description of your page or site, but don't make it too long. About this long should be good.",
 
-        "use_ph": true,
+        "type": "website",
+        "site_name": "This is My Site",
+
+        "use_ph": false,
+        "image_ph": "http://via.placeholder.com/",
         "bgcolor_ph": "403dff",
         "fgcolor_ph": "000000",
-        "text_ph": "This is a sample thumbnail",
+        "text_ph": "some_text_goes_here",
+        "imagewidth_ph": "1200",
+        "imageheight_ph": "796",
+        "imagetype_ph": "jpg",
 
-        "imagetype": "image/jpg",
-        "imagewidth": "1200",
-        "imageheight": "796",
-        "url": "https://www.your-web-site.com/",
-        "title": "Page or Site Title",
-        "description": "A brief description of your page or site, but don't make it too long.",
-        "type": "website"
+        "image": "https://raw.githubusercontent.com/jxmot/markdown-render/master/assets/img/placeimg_1000_800_tech-01.jpg",
+        "imagewidth": "1000",
+        "imageheight": "800",
+
+        "imagetype": "image/jpg"
     }
 }
+
 ```
 
+The structure of the JSON file is intentional *at this time*. It currently allows for the ability to have two separate meta tag groups, one for Twitter and another for everything else.
 
+## Additional Open Graph Information
+
+The Open Graph options in this application are intended for use when creating a static page from the rendered ouput. Even if you want to continue live rendering of the page a static HTML would be necessary in order for the Open Graph parts to work correctly.
+
+The Open Graph meta tags that are generated were intend for use on Facebook, LinkedIn, and Twitter. They have not been extensively tested elsewhere but are likely to work as expected.
+
+Other things to know are - 
+
+* In the `twitter:url` and `og:url` meta tags the `url` must end in `/` or reference an existing file.
+* It seems that a larger *thumbnail* image works best. I've read conflicting info regarding the size of the image, and my choice for larger image is due to what I read in the [Facebook Best Practices](https://developers.facebook.com/docs/sharing/best-practices) docs.
+* If problems occur try using one or more of these to find errors - 
+    * [Facebook Object Debugger](https://developers.facebook.com/tools/debug/og/object/). You have to be logged into Facebook in order for the debugger to work.
+    * [Twitter Card Validator](https://cards-dev.twitter.com/validator). You have to be logged into Twitter in order for the debugger to work.
+    * [Social Debug](http://socialdebug.com/) - It "grades" your meta tags, seems to work pretty well.
+
+### LinkedIn Notes
+
+Sometimes there are issues when adding a link to LinkedIn's *media* or to posts where the image is incorrect. If that happens place a small meaningless query at the end of the URL. This seems to force LinkedIn to read the Open Graph tags right away. An example URL - https://yoursite.com/**?1**
+
+### Twitter Notes
+
+The Twitter site and application do not appear to show the image right away. However I've found out that if I create the post with the link *on the Twitter web page* then I can see the image on the *Twitter desktop application*.
 
 ## Other Modifiable Items
 
@@ -271,6 +307,8 @@ Add the section above to your `php.ini` file. Under XAMPP it is located at `C:\x
 
 ## Running under NetBeans
 
+* Download and install XAMPP, make the modifcations describe above to the `php.ini` file.
+* Download and install NetBeans, download the PHP/HTML5 flavor of NetBeans.
 * Run NetBeans
 * Then File->Open Project and navigate to `c:\xampp\htdocs\tests\mdrender` and open the project
 
@@ -279,12 +317,6 @@ NetBeans will allow you to set breakpoints and examine variables.
 ## Running on a Host
 
 Copy the files as described in [Running the Project](#running-the-project) to a folder on your server's *document root*. To run the test render navigate your browser to - `http[s]://yourserver/yourfolder/index.php`. The default configuration is in `test.json`. To run a different JSON configuration file create one with the appropriate modifications (*use* `test.json` *as a starting point*) and copy it to the folder on your server. Then you can navigate to - `http[s]://yourserver/yourfolder/index.php?cfg=yourconfig`.
-
-### A Good Trick to Know
-
-Are you familiar with the `.htaccess` file on your web server?
-
-**
 
 # IMPORTANT Things to Note
 
