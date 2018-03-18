@@ -16,7 +16,9 @@ if(($g_pageconfig->genstatic === true) && ($g_pageconfig->oghead === true)) {
     echo "    <meta name=\"twitter:creator\" content=\"".$ogopt->twitter->creator."\"/>\n";
     echo "    <!-- Twitter summary card with large image must be at least 280x150px -->\n";
     if($ogopt->twitter->use_ph === true) {
-        $ogimage = $ogopt->twitter->image_ph . "/" . $ogopt->twitter->imagewidth_ph . "x" . $ogopt->twitter->imageheight_ph . "." . $ogopt->twitter->imagetype_ph . "/" . $ogopt->twitter->bgcolor_ph . "/" . $ogopt->twitter->fgcolor_ph . "?text=" . $ogopt->twitter->text_ph;
+        if(isset($ogopt->twitter->text_ph)) $txtarg = "?text=" . str_replace(" ", "%20", $ogopt->twitter->text_ph);
+        else $txtarg = "";
+        $ogimage = $ogopt->twitter->image_ph . "/" . $ogopt->twitter->imagewidth_ph . "x" . $ogopt->twitter->imageheight_ph . "." . $ogopt->twitter->imagetype_ph . "/" . $ogopt->twitter->bgcolor_ph . "/" . $ogopt->twitter->fgcolor_ph . $txtarg;
         echo "    <meta name=\"twitter:image\" content=\"".$ogimage."\"/>\n";
         echo "    <meta name=\"twitter:image:width\" content=\"".$ogopt->twitter->imagewidth_ph."\"/>\n";
         echo "    <meta name=\"twitter:image:height\" content=\"".$ogopt->twitter->imageheight_ph."\"/>\n";
@@ -29,7 +31,9 @@ if(($g_pageconfig->genstatic === true) && ($g_pageconfig->oghead === true)) {
 
     echo "    <!-- facebook and linkedin... -->\n";
     if($ogopt->og->use_ph === true) {
-        $ogimage = $ogopt->og->image_ph . "/" . $ogopt->og->imagewidth_ph . "x" . $ogopt->og->imageheight_ph . "." . $ogopt->og->imagetype_ph . "/" . $ogopt->og->bgcolor_ph . "/" . $ogopt->og->fgcolor_ph . "?text=" . $ogopt->og->text_ph;
+        if(isset($ogopt->og->text_ph)) $txtarg = "?text=" . str_replace(" ", "%20", $ogopt->og->text_ph);
+        else $txtarg = "";
+        $ogimage = $ogopt->og->image_ph . "/" . $ogopt->og->imagewidth_ph . "x" . $ogopt->og->imageheight_ph . "." . $ogopt->og->imagetype_ph . "/" . $ogopt->og->bgcolor_ph . "/" . $ogopt->og->fgcolor_ph . $txtarg;
         echo "    <meta property=\"og:image\" content=\"".$ogimage."\"/>\n";
         echo "    <meta property=\"og:image:width\" content=\"".$ogopt->og->imagewidth_ph."\"/>\n";
         echo "    <meta property=\"og:image:height\" content=\"".$ogopt->og->imageheight_ph."\"/>\n";
