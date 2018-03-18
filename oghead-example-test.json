@@ -1,0 +1,51 @@
+{
+    "prefix": "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#",
+
+    "twitter": {
+        "title": "Page or Site Title(Twitter)",
+        "url": "https://github.com/jxmot/markdown-render",
+        "description": "A brief description of your page or site, but don't make it too long. About this long should be good.",
+
+        "site": "@YourTwitterHandle",
+        "card": "summary_large_image",
+        "creator": "@YourTwitterHandle",
+
+        "use_ph": false,
+        "image_ph": "http://via.placeholder.com/",
+        "bgcolor_ph": "381aff",
+        "fgcolor_ph": "6eff3d",
+        "text_ph": "some_text_goes_here",
+        "imagewidth_ph": "1556",
+        "imageheight_ph": "778",
+        "imagetype_ph": "jpg",
+
+        "image": "https://raw.githubusercontent.com/jxmot/markdown-render/master/assets/img/placeimg_1000_800_arch-01.jpg",
+        "imagewidth": "1000",
+        "imageheight": "800"
+    },
+
+    "og": {
+        "title": "Page or Site Title",
+        "url": "https://github.com/jxmot/markdown-render",
+        "description": "A brief description of your page or site, but don't make it too long. About this long should be good.",
+
+        "type": "website",
+        "site_name": "This is My Site",
+
+        "use_ph": false,
+        "image_ph": "http://via.placeholder.com/",
+        "bgcolor_ph": "403dff",
+        "fgcolor_ph": "000000",
+        "text_ph": "some_text_goes_here",
+        "imagewidth_ph": "1200",
+        "imageheight_ph": "796",
+        "imagetype_ph": "jpg",
+
+        "image": "https://raw.githubusercontent.com/jxmot/markdown-render/master/assets/img/placeimg_1000_800_tech-01.jpg",
+        "imagewidth": "1000",
+        "imageheight": "800",
+
+        "imagetype": "image/jpg"
+    }
+}
+
