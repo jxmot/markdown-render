@@ -169,7 +169,7 @@ The samples below were the results of the meta tags that were created with the c
   <img src="./mdimg/linkedin-sample-553x578.jpg" alt="LinkedIn Render Example" txt="LinkedIn Render Example" width="50%">
 </p>
 
-# Files in this Repository
+# Related Files in this Repository
 
 * Referenced in this document - 
     * `oghead-example-test.json` - 
