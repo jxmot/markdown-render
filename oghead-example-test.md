@@ -79,9 +79,9 @@ As an *alternative* to static images you can use *placeholder* images. There are
 <i id="linkimg"></i>
 **#4 Link image URL, image width & height**<br>
 
-**`image`** : <br>
-**`imagewidth`** : <br>
-**`imageheight`** : <br>
+**`image`** : a URL to a static image, used if `use_ph` is false<br>
+**`imagewidth`** : image width<br>
+**`imageheight`** : image height<br>
 
 ```
         "image": "https://raw.githubusercontent.com/jxmot/markdown-render/master/assets/img/placeimg_1000_800_arch-01.jpg",
@@ -104,8 +104,8 @@ Please see the [Twitter Card section](#twcard) for details.
 ```
 **#2 Open Graph Object Type**<br>
 
-**`type`** : 
-**`site_name`** : 
+**`type`** : right now I'm only using `website`, there are a lot of others decribed in the Open Graph [documentation](http://ogp.me/#types)
+**`site_name`** : The name of the site which contains the resource linked to in `url`
 
 ```
         "type": "website",
