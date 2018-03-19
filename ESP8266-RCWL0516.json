@@ -5,6 +5,7 @@
 
     "mdfilerem": true,
     "mdfile"   : "README.md",
+    "mdpageopt": "./mdpageopt.json",
 
     "pagetitle": "ESP8266-RCWL0516 - Design Notes",
 
@@ -17,5 +18,8 @@
     "metaauth" : "https://github.com/jxmot",
 
     "genstatic": true,
-    "statname" : "./rcwl0516.html"
+    "statname" : "./rcwl0516.html",
+
+    "oghead": false,
+    "ogjson": ""
 }
