@@ -36,7 +36,7 @@ Use this as your `prefix` attribute for the `<head>` tag when using Open Graph m
     "prefix": "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#",
 ```
 ### Twitter
-<i id="twcard"></i>
+<i id="twcard"></i><br>
 **#1 Twitter Card : Link title, URL, and description**<br>
 
 **`title`** : This is displayed as the Twitter Card title. See [Output Examples](#output-examples) to see where it shows up.<br>
@@ -50,7 +50,7 @@ Use this as your `prefix` attribute for the `<head>` tag when using Open Graph m
         "description": "A brief description of your page or site, but don't make it too long. About this long should be good.",
 ```
 
-<i id="twsite"></i>
+<i id="twsite"></i><br>
 **#2 Twitter-site owner of the account posting the link, card type, and creator (also your twitter handle)**<br>
 
 **`site`** : @username for the website used in the card footer.<br>
@@ -63,7 +63,7 @@ Use this as your `prefix` attribute for the `<head>` tag when using Open Graph m
         "creator": "@YourTwitterHandle",
 ```
 
-<i id="phold"></i>
+<i id="phold"></i><br>
 **#3 [Placeholder](https://placeholder.com/) enable flag, URL base, foreground & background colors, text, image width & height, and image type**<br>
 
 As an *alternative* to static images you can use *placeholder* images. There are a number of resources on the web but I chose [Placeholder.com](https://placeholder.com/) because it's very simple to use and it's free. The only catch has been with the on-image text. 
@@ -87,7 +87,7 @@ As an *alternative* to static images you can use *placeholder* images. There are
         "imageheight_ph": "778",
         "imagetype_ph": "jpg",
 ```
-<i id="linkimg"></i>
+<i id="linkimg"></i><br>
 **#4 Link image URL, image width & height**<br>
 
 **`image`** : a URL to a static image, used if `use_ph` is false<br>
