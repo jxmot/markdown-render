@@ -29,7 +29,7 @@ Here are the application features -
             * Branch
             * Markdown file - The file can be local or hosted on GitHub
     * Generates Static HTML - An optional setting controls this feature, the output file name is also configurable.
-        * Open Graph Meta Tags - 
+        * Open Graph Meta Tags - Can be configure with meta tag contents, allows for links to the page to be Twitter Cards or other rich links for Facebook, LinkedIn, etc
         * Meta Tags - Can be configured in the JSON file or can be retrieved from the GitHub repository.
             * Meta Description
             * Meta Keywords
