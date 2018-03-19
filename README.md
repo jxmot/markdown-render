@@ -77,7 +77,7 @@ I used Netbeans 8.2 for the majority of my debugging. It works very well with PH
     * `test.md`
 
 5. Run XAMPP and start Apache (*not necessary if running on a hosting server*)
-6. Open your browser and navigate to - `http://localhost/tests/mdrender/index.php`
+6. Open your browser and navigate to - `http://[localhost | server]/tests/mdrender/index.php`
 7. The page you see *should* look like this - 
  
 <p align="center">
@@ -120,6 +120,7 @@ It *should not be* necessary to edit the following in the `github.json` file -
 
     "mdfilerem": true,
     "mdfile"   : "test.md",
+    "mdpageopt": "./mdpageopt.json",
 
     "pagetitle": "markdown-render Test",
 
@@ -145,6 +146,7 @@ The following found in `test.json` can be edited as needed -
 * `branch` - the branch that contains the markdown file
 * `mdfilerem` - if **`true`** the application will obtain the markdown file *from* the repository, if it is **`false`** it will look for the file locally
 * `mdfile` - the name of the targeted markdown file
+* `mdpageopt` - the path + name of the configuration file which contains settings for page footer, social icons, and "to top" functionality
 * `pagetitle` - this will become the text between the `<title>` tags in the rendered output
 * `gitdesc` - if **`true`** the application will obtain the description from the specified repository, if **`false`** it will use the text found in `metadesc`
 * `metadesc` - optional, used if `gitdesc` is `false`
@@ -158,7 +160,7 @@ The following found in `test.json` can be edited as needed -
 
 Additional JSON files can be created as needed and contain different repository information. To run the application using a different JSON file is accomplished using a *query*. For example if a JSON file named `myreadme.json` is to be used then point the browser to - `http://localhost/tests/mdrender/index.php?cfg=myreadme`.
 
-**mdrenderpage.json :** There are additional features that are configurable via a another JSON file  - 
+**mdpageopt.json :** There are additional features that are configurable via a another JSON file  - 
 
 ```
 {
@@ -219,7 +221,7 @@ Other things to know are -
 
 ### LinkedIn Notes
 
-Sometimes there are issues when adding a link to LinkedIn's *media* or to posts where the image is incorrect. If that happens edit and place a small meaningless query at the end of the URL. This seems to force LinkedIn to read the Open Graph tags right away. An example URL - https://yoursite.com/**?1**
+Sometimes there are issues when adding a link to LinkedIn's *media* or to posts where the image is incorrect. If that happens edit and place a small meaningless query at the end of the URL. This seems to force LinkedIn to read the Open Graph tags right away. An example URL - https://yoursite.com/**?1**. 
 
 ### Twitter Notes
 
@@ -255,7 +257,7 @@ Add the section above to your `php.ini` file. Under XAMPP it is located at `C:\x
 * Download and install XAMPP, make the modifcations describe above to the `php.ini` file.
 * Download and install NetBeans, download the PHP/HTML5 flavor of NetBeans.
 * Run NetBeans
-* Then File->Open Project and navigate to `c:\xampp\htdocs\tests\mdrender` and open the project
+    * Then File->Open Project and navigate to `c:\xampp\htdocs\tests\mdrender` and open the project
 
 NetBeans will allow you to set breakpoints and examine variables.
 
@@ -269,7 +271,7 @@ The version of *Parsedown* used in this repository is realatively old. It was cr
 
 There have been a large number of changes made at [Parsedown](https://github.com/erusev/parsedown) since the time when the current version was first obtained. ~~I plan on updating the local copy of Parsedown after activivity has settled down in the Parsedown repository~~. 
 
-**UPDATE 2018-0308 :** After much (very much) tinkering around with some "updated" version of parsedown I've decided that the version I'm using now will have to do. There were some changes that severly broke what I'm trying to do. Since the original code **is not commented sufficiently** it became increasing difficult to determine what exactly has changed and what the intent was. The problems were evident in embedded images, for example - `![some text](path/to/image.jpg)`. The 1.7.0 and 1.7.1 versions of Parsedown treated those *links* and processed them as such. During that process they're converted back to an embedded image. After I studied the Parsdown code in detail it appeared to me that the reason for that was a "fudge". Which was manifested as a call to inlineImage() and then from within that function to call inlineLink(). By calling inlineLink() the internals of the element array were manipulated to look like a `<a>` tag.
+**UPDATE 2018-03-08 :** After much (very much) tinkering around with some "updated" version of parsedown I've decided that the version I'm using now will have to do. There were some changes that severly broke what I'm trying to do. Since the original code **is not commented sufficiently** it became increasing difficult to determine what exactly has changed and what the intent was. The problems were evident in embedded images, for example - `![some text](path/to/image.jpg)`. The 1.7.0 and 1.7.1 versions of Parsedown treated those *links* and processed them as such. During that process they're converted back to an embedded image. After I studied the Parsdown code in detail it appeared to me that the reason for that was a "fudge". Which was manifested as a call to inlineImage() and then from within that function to call inlineLink(). By calling inlineLink() the internals of the element array were manipulated to look like a `<a>` tag.
 
 ----
 
