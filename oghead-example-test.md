@@ -3,16 +3,17 @@
 There are a couple of *sections* in the JSON file, they are grouped as - 
 
 * `twitter` : Twitter Card sharing<br>
-    #1 Link title, URL, and description<br>
-    #2 Twitter-site owner of the account posting the link, card type, and creator (also your twitter handle)<br>
-    #3 [Placeholder](https://placeholder.com/) enable flag, URL base, foreground & background colors, text, image width & height, and image type<br>
-    #4 Link image URL, image width & height<br>
+    1) Link title, URL, and description<br>
+    2) Twitter-site owner of the account posting the link, card type, and creator (also your twitter handle)<br>
+    3) [Placeholder](https://placeholder.com/) enable flag, URL base, foreground & background colors, text, image width & height, and image type<br>
+    4) Link image URL, image width & height<br>
     
 * `og` : This is for all other non-twitter shares<br>
-    #1 Link title, URL, and description<br>
-    #2 Site type and name<br>
-    #3 [Placeholder](https://placeholder.com/) enable flag, URL base, foreground & background colors, text, image width & height, and image type<br>
-    #4 Link image URL, image width & height<br>
+    1) Link title, URL, and description<br>
+    2) Site type and name<br>
+    3) [Placeholder](https://placeholder.com/) enable flag, URL base, foreground & background colors, text, image width & height, and image type<br>
+    4) Link image URL, image width & height<br>
+    5) Mime Image type<br>
 
 ```
 {
