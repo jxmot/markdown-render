@@ -12,6 +12,7 @@ class RenderConfig {
 
     private $cfg;
     public $mdfile;
+    public $mdpageopt;
     public $owner;
     public $repo;
     public $branch;
@@ -43,6 +44,8 @@ class RenderConfig {
         } else {
             $this->mdfile = $this->cfg->mdfile;
         }
+
+        $this->mdpageopt = $this->cfg->mdpageopt;
 
         // reduce the depth at which clients will need to
         // reach into this object

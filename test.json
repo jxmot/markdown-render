@@ -5,6 +5,7 @@
 
     "mdfilerem": true,
     "mdfile"   : "test.md",
+    "mdpageopt": "./mdpageopt.json",
 
     "pagetitle": "markdown-render Test",
 

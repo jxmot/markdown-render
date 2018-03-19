@@ -5,6 +5,7 @@
 
     "mdfilerem": true,
     "mdfile"   : "oghead-example-test.md",
+    "mdpageopt": "./mdpageopt.json",
 
     "pagetitle": "Details for oghead-example-test",
 
@@ -12,7 +13,7 @@
     "metadesc" : "oghead-example-test JSON file content description",
 
     "gittopics": false,
-    "metakeyw" : "markdown-render,markdown,opengraph,open-graph",
+    "metakeyw" : "markdown-render,markdown,open graph,open-graph,php,json",
 
     "metaauth" : "https://github.com/jxmot",
 
