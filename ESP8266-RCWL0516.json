@@ -17,7 +17,7 @@
 
     "metaauth" : "https://github.com/jxmot",
 
-    "genstatic": true,
+    "genstatic": false,
     "statname" : "./rcwl0516.html",
 
     "oghead": false,
