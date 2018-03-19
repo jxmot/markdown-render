@@ -1,0 +1,25 @@
+{
+    "owner"    : "jxmot",
+    "repo"     : "markdown-render",
+    "branch"   : "master",
+
+    "mdfilerem": true,
+    "mdfile"   : "README.md",
+    "mdpageopt": "./mdpageopt.json",
+
+    "pagetitle": "markdown-render README",
+
+    "gitdesc"  : true,
+    "metadesc" : "",
+
+    "gittopics": true,
+    "metakeyw" : "",
+
+    "metaauth" : "https://github.com/jxmot",
+
+    "genstatic": false,
+    "statname" : "./markdown-render.html",
+
+    "oghead": false,
+    "ogjson": ""
+}
