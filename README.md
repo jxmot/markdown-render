@@ -1,4 +1,5 @@
 # markdown-render
+
 A PHP project that renders markdown files from GitHub repositories. Based on [Parsedown](http://parsedown.org)
 
 # History
@@ -28,6 +29,7 @@ Here are the application features -
             * Branch
             * Markdown file - The file can be local or hosted on GitHub
     * Generates Static HTML - An optional setting controls this feature, the output file name is also configurable.
+        * Open Graph Meta Tags - 
         * Meta Tags - Can be configured in the JSON file or can be retrieved from the GitHub repository.
             * Meta Description
             * Meta Keywords
@@ -41,14 +43,14 @@ PHP was the primary technology used in this project. It provides all of the nece
 ## Application Architecture
 
 <p align="center">
-  <img src="./mdimg/app-arch-simple.png" alt="Basic Architecture" txt="Basic Architecture" width="75%">
+  <img src="./mdimg/app-arch-simple-904x830.jpg" alt="Basic Architecture" txt="Basic Architecture" width="75%">
 </p>
 
 ## Minimum Requirements
 
 * PHP - Version 5.6 was used in development and testing. It was chosen because *standard hosting* was the targeted platform.
 * Web Server - This project can be hosted on a internet accessible host. However for initial use and testing a local server such as [XAMPP](https://www.apachefriends.org/index.html) is recommended. This project was developed and tested on XAMPP - [xampp-win32-5.6.31-0-VC11-installer.exe](https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/5.6.31/xampp-win32-5.6.31-0-VC11-installer.exe/download)
-* Web Browser - My preferred browser is *Chrome*.
+* Web Browser - My preferred development browser is *Chrome*.
 
 ### Extra
 
@@ -75,7 +77,7 @@ I used Netbeans 8.2 for the majority of my debugging. It works very well with PH
     * `test.md`
 
 5. Run XAMPP and start Apache (*not necessary if running on a hosting server*)
-6. Open your browser and navigate to - `http://localhost/tests/mdrender/index.php`
+6. Open your browser and navigate to - `http://[localhost | server]/tests/mdrender/index.php`
 7. The page you see *should* look like this - 
  
 <p align="center">
@@ -102,6 +104,12 @@ Here is the file in GitHub - [test.md](./test.md) (*right-click and open in a ne
 }
 ```
 
+It *should not be* necessary to edit the following in the `github.json` file - 
+* `reporaw` - base URL for accessing *raw* GitHub files
+* `repogit` - base URL for accessing GitHub 
+* `repoapi` - base URL for accessing the GitHub API
+* `accheader` - an array of two `Accept` headers, selected in code for specific API calls.
+
 **test.json :** This file and its contents are specific to the Markdown file that you want to render. 
 
 ```
@@ -112,6 +120,7 @@ Here is the file in GitHub - [test.md](./test.md) (*right-click and open in a ne
 
     "mdfilerem": true,
     "mdfile"   : "test.md",
+    "mdpageopt": "./mdpageopt.json",
 
     "pagetitle": "markdown-render Test",
 
@@ -119,20 +128,17 @@ Here is the file in GitHub - [test.md](./test.md) (*right-click and open in a ne
     "metadesc" : "",
 
     "gittopics": false,
-    "metakeyw" : "",
+    "metakeyw" : "test,mdrender,markdown",
 
     "metaauth" : "https://github.com/jxmot",
 
-    "genstatic": false,
-    "statname" : "./test.html"
+    "genstatic": true,
+    "statname" : "./test.html",
+
+    "oghead": true,
+    "ogjson": "./oghead-example-test.json"
 }
 ```
-
-It *should not be* necessary to edit the following in the `github.json` file - 
-* `reporaw`
-* `repogit`
-* `repoapi`
-* `accheader`
 
 The following found in `test.json` can be edited as needed - 
 * `owner` - this is the owner of the repository where the markdown file to be rendered is residing.
@@ -140,6 +146,7 @@ The following found in `test.json` can be edited as needed -
 * `branch` - the branch that contains the markdown file
 * `mdfilerem` - if **`true`** the application will obtain the markdown file *from* the repository, if it is **`false`** it will look for the file locally
 * `mdfile` - the name of the targeted markdown file
+* `mdpageopt` - the path + name of the configuration file which contains settings for page footer, social icons, and "to top" functionality
 * `pagetitle` - this will become the text between the `<title>` tags in the rendered output
 * `gitdesc` - if **`true`** the application will obtain the description from the specified repository, if **`false`** it will use the text found in `metadesc`
 * `metadesc` - optional, used if `gitdesc` is `false`
@@ -148,10 +155,12 @@ The following found in `test.json` can be edited as needed -
 * `metaauth` - optional, fills in the meta author tag if there if it has text in it
 * `genstatic` - if **`true`** the application will create a static HTML file from the rendered output.
 * `statname` - the name of the generated static HTML file, since the rendered file will use the CSS and JS files it is best to save it in the current location (i.e. `./`)
+* `oghead` - if **`true`** then meta tags containing *Open Graph* protocol data will be included within the `<head>` tags. **NOTE :** `genstatic` must be **`true`**, otherwise this field is ignored
+* `ogjson` - the path + name of the configuration file which contains the data for the Open Graph meta tags
 
 Additional JSON files can be created as needed and contain different repository information. To run the application using a different JSON file is accomplished using a *query*. For example if a JSON file named `myreadme.json` is to be used then point the browser to - `http://localhost/tests/mdrender/index.php?cfg=myreadme`.
 
-**mdrenderpage.json :** There are additional features that are configurable via a another JSON file  - 
+**mdpageopt.json :** There are additional features that are configurable via a another JSON file  - 
 
 ```
 {
@@ -175,6 +184,48 @@ Additional JSON files can be created as needed and contain different repository 
     * `assets/css/totop.css`
     * `assets/js/totop.js`
     * an HTML button located at the bottom of the document space - `<button id="gototop" class="gototop" onclick="jumpToTop()" title="Go to top of page">&#9650;<br>top</button>`
+
+**oghead-example-test.json :** This file contains the required content for the "[Open Graph](http://ogp.me/)" protocol. I used it on pages shared with Twitter and LinkedIn. 
+
+In `test.json` - 
+
+```
+{
+# not related to other settings in this file
+
+
+    "genstatic": true,
+    "statname" : "./test.html",
+
+    "oghead": true,
+    "ogjson": "./oghead-example-test.json"
+}
+```
+
+The Opeh Graph tags will not be rendered unless `genstatic` **and** `oghead` are true. The configuration for the meta tag content is in `oghead-example-test.json`. You can find the details in the **[oghead-example-test](oghead-example-test.md)** document.
+
+## Additional Open Graph Information
+
+The Open Graph options in this application are intended for use when creating a static page from the rendered ouput. Even if you want to continue live rendering of the page a static HTML would be necessary in order for the Open Graph parts to work correctly.
+
+The Open Graph meta tags that are generated were intend for use on Facebook, LinkedIn, and Twitter. They have not been extensively tested elsewhere but are likely to work as expected.
+
+Other things to know are - 
+
+* In the `twitter:url` and `og:url` meta tags the `url` must end in `/` or reference an existing file.
+* It seems that a larger *thumbnail* image works best. I've read conflicting info regarding the size of the image, and my choice for larger image is due to what I read in the [Facebook Best Practices](https://developers.facebook.com/docs/sharing/best-practices) docs.
+* If problems occur try using one or more of these to find errors - 
+    * [Facebook Object Debugger](https://developers.facebook.com/tools/debug/og/object/). You have to be logged into Facebook in order for the debugger to work.
+    * [Twitter Card Validator](https://cards-dev.twitter.com/validator). You have to be logged into Twitter in order for the debugger to work.
+    * [Social Debug](http://socialdebug.com/) - It "grades" your meta tags, seems to work pretty well.
+
+### LinkedIn Notes
+
+Sometimes there are issues when adding a link to LinkedIn's *media* or to posts where the image is incorrect. If that happens edit and place a small meaningless query at the end of the URL. This seems to force LinkedIn to read the Open Graph tags right away. An example URL - https://yoursite.com/**?1**. 
+
+### Twitter Notes
+
+The Twitter site and application do not appear to show the image right away. I *think* that the link target isn't scraped for the thumbnail until the post is viewed for the first time, not counting the original post. So if it doesn't show up right away quit the application or browser and restart.
 
 ## Other Modifiable Items
 
@@ -203,8 +254,10 @@ Add the section above to your `php.ini` file. Under XAMPP it is located at `C:\x
 
 ## Running under NetBeans
 
+* Download and install XAMPP, make the modifcations describe above to the `php.ini` file.
+* Download and install NetBeans, download the PHP/HTML5 flavor of NetBeans.
 * Run NetBeans
-* Then File->Open Project and navigate to `c:\xampp\htdocs\tests\mdrender` and open the project
+    * Then File->Open Project and navigate to `c:\xampp\htdocs\tests\mdrender` and open the project
 
 NetBeans will allow you to set breakpoints and examine variables.
 
@@ -218,5 +271,10 @@ The version of *Parsedown* used in this repository is realatively old. It was cr
 
 There have been a large number of changes made at [Parsedown](https://github.com/erusev/parsedown) since the time when the current version was first obtained. ~~I plan on updating the local copy of Parsedown after activivity has settled down in the Parsedown repository~~. 
 
-**UPDATE 2018-0308 :** After much (very much) tinkering around with some "updated" version of parsedown I've decided that the version I'm using now will have to do. There were some changes that severly broke what I'm trying to do. Since the original code **is not commented sufficiently** it became increasing difficult to determine what exactly has changed and what the intent was. The problems were evident in embedded images, for example - `![some text](path/to/image.jpg)`. The 1.7.0 and 1.7.1 versions of Parsedown treated those *links* and processed them as such. During that process they're converted back to an embedded image. After I studied the Parsdown code in detail it appeared to me that the reason for that was a "fudge". Which was manifested as a call to inlineImage() and then from within that function to call inlineLink(). By calling inlineLink() the internals of the element array were manipulated to look like a `<a>` tag.
+**UPDATE 2018-03-08 :** After much (very much) tinkering around with some "updated" version of parsedown I've decided that the version I'm using now will have to do. There were some changes that severly broke what I'm trying to do. Since the original code **is not commented sufficiently** it became increasing difficult to determine what exactly has changed and what the intent was. The problems were evident in embedded images, for example - `![some text](path/to/image.jpg)`. The 1.7.0 and 1.7.1 versions of Parsedown treated those *links* and processed them as such. During that process they're converted back to an embedded image. After I studied the Parsdown code in detail it appeared to me that the reason for that was a "fudge". Which was manifested as a call to inlineImage() and then from within that function to call inlineLink(). By calling inlineLink() the internals of the element array were manipulated to look like a `<a>` tag.
 
+----
+
+<p align="center">
+  &copy; 2018 Jim Motyl
+</p>

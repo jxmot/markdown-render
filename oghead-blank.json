@@ -1,0 +1,51 @@
+{
+    "prefix": "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#",
+
+    "twitter": {
+        "title": "",
+        "url": "",
+        "description": "",
+
+        "site": "",
+        "card": "",
+        "creator": "",
+
+        "use_ph": false,
+        "image_ph": "http://via.placeholder.com/",
+        "bgcolor_ph": "381aff",
+        "fgcolor_ph": "6eff3d",
+        "text_ph": "some text goes RIGHT here",
+        "imagewidth_ph": "1556",
+        "imageheight_ph": "778",
+        "imagetype_ph": "jpg",
+
+        "image": "",
+        "imagewidth": "",
+        "imageheight": ""
+    },
+
+    "og": {
+        "title": "",
+        "url": "",
+        "description": "",
+
+        "type": "website",
+        "site_name": "",
+
+        "use_ph": false,
+        "image_ph": "http://via.placeholder.com/",
+        "bgcolor_ph": "403dff",
+        "fgcolor_ph": "000000",
+        "text_ph": "some OTHER text goes here",
+        "imagewidth_ph": "1200",
+        "imageheight_ph": "796",
+        "imagetype_ph": "jpg",
+
+        "image": "",
+        "imagewidth": "",
+        "imageheight": "",
+
+        "imagetype": "image/jpg"
+    }
+}
+

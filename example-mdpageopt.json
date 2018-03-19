@@ -1,0 +1,10 @@
+{
+    "footer": true,
+    "footertxt": "Some Footer Text",
+    "socicon": true,
+    "socitems": [
+        { "url":"https://github.com/your_id/", "class":"gh", "target":"_blank", "title":"See me on GitHub!" },
+        { "url":"https://www.linkedin.com/in/your_id/", "class":"in", "target":"_blank", "title":"See me on LinkedIn!" }
+    ],
+    "totop": true
+}

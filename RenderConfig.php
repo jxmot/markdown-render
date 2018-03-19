@@ -12,6 +12,7 @@ class RenderConfig {
 
     private $cfg;
     public $mdfile;
+    public $mdpageopt;
     public $owner;
     public $repo;
     public $branch;
@@ -22,6 +23,9 @@ class RenderConfig {
 
     public $genstatic;
     public $statname;
+
+    public $oghead;
+    public $ogjson;
 
     function __construct($cfgfile)
     {
@@ -40,6 +44,8 @@ class RenderConfig {
         } else {
             $this->mdfile = $this->cfg->mdfile;
         }
+
+        $this->mdpageopt = $this->cfg->mdpageopt;
 
         // reduce the depth at which clients will need to
         // reach into this object
@@ -63,6 +69,9 @@ class RenderConfig {
         // generate a static file?
         $this->genstatic = $this->cfg->genstatic;
         $this->statname  = ($this->genstatic === true ? $this->cfg->statname : "");
+
+        $this->oghead = $this->cfg->oghead;
+        $this->ogjson = ($this->oghead === true ? $this->cfg->ogjson : "");
     }
 
     private function configMeta()
