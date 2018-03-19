@@ -4,21 +4,22 @@
     "branch"   : "master or what ever branch you need",
 
     "mdfilerem": false,
-    "mdfile"   : "README.md",
+    "mdfile"   : "example.md",
+    "mdpageopt": "./example-mdpageopt.json",
 
     "pagetitle": "desired page title goes here",
 
     "gitdesc"  : false,
-    "metadesc" : "optional description, remove if not used",
+    "metadesc" : "optional description, set to null if not used",
 
     "gittopics": false,
     "metakeyw" : "optional,key,words,go,here",
 
-    "metaauth" : "optional author, remove if not used",
+    "metaauth" : "optional author, set to null if not used",
 
     "genstatic": false,
     "statname" : "./static.html",
 
     "oghead": false,
-    "ogjson": "./oghead-example-test.json"
+    "ogjson": ""
 }
