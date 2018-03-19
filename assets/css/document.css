@@ -90,5 +90,6 @@ table > thead > tr > th {
 
 p > img {
     background-color: white;
+    border: 1px solid white;
 }
 
