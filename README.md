@@ -74,6 +74,7 @@ I used Netbeans 8.2 for the majority of my debugging. It works very well with PH
     * `RenderConfig.php`
     * `github.json`
     * `test.json`
+    * `mdpageopt.json`
     * `test.md`
 
 5. Run XAMPP and start Apache (*not necessary if running on a hosting server*)
