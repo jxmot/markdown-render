@@ -182,10 +182,11 @@ The samples below were the results of the meta tags that were created with the c
 
 # Useful Resources
 
-* [About Twitter Cards](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards)
-    * [Card Validator](https://cards-dev.twitter.com/validator) - Twitter card validator
 * [The Open Graph protocol](http://ogp.me/) - documentation
-* [Facebook Open Graph Object Debugger](https://developers.facebook.com/tools/debug/og/object/)
+* [About Twitter Cards](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards) - documentation
+    * [Card Validator](https://cards-dev.twitter.com/validator) - Twitter card validator
+* [Facebook A Guide to Sharing for Webmasters](https://developers.facebook.com/docs/sharing/webmasters)
+    * [Facebook Open Graph Object Debugger](https://developers.facebook.com/tools/debug/og/object/)
 * [Social Debug](http://socialdebug.com/) - tests against Facebook, Twitter, Google+, and LinkedIn and "grades" the results.
 
 # What's Next?
