@@ -19,10 +19,9 @@ $render = new ParsedownModify($ElementModifier);
 
 // generic page options - footer, social icons, "to top" button, etc
 global $g_mdpage;
-$mdopt = "./mdrenderpage.json";
-if(file_exists($mdopt))
+if(file_exists($g_pageconfig->mdpageopt))
 {
-    $g_mdpage = json_decode(file_get_contents($mdopt));
+    $g_mdpage = json_decode(file_get_contents($g_pageconfig->mdpageopt));
 }
 
 // generate a static file?
@@ -68,20 +67,20 @@ echo "\n" . $render->text($file) . "\n";
             <div class="mdfooter col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12">
                 <p>
 <?php
-    if(isset($g_mdpage->socicon) && ($g_mdpage->socicon === true))
-    {
-        echo "                    <a href=".$g_mdpage->socitems[0]->url." target=".$g_mdpage->socitems[0]->target." class=".$g_mdpage->socitems[0]->class." title=".$g_mdpage->socitems[0]->title."></a>\n";
-        if(isset($g_mdpage->footertxt))
+        if(isset($g_mdpage->socicon) && ($g_mdpage->socicon === true))
         {
-            echo "                    " . $g_mdpage->footertxt . "\n";
+            echo "                    <a href=".$g_mdpage->socitems[0]->url." target=".$g_mdpage->socitems[0]->target." class=".$g_mdpage->socitems[0]->class." title=".$g_mdpage->socitems[0]->title."></a>\n";
+            if(isset($g_mdpage->footertxt))
+            {
+                echo "                    " . $g_mdpage->footertxt . "\n";
+            }
+            echo "                    <a href=".$g_mdpage->socitems[1]->url." target=".$g_mdpage->socitems[1]->target." class=".$g_mdpage->socitems[1]->class." title=".$g_mdpage->socitems[1]->title."></a>\n";
+        } else {
+            if(isset($g_mdpage->footertxt))
+            {
+                echo "                    " . $g_mdpage->footertxt . "\n";
+            }
         }
-        echo "                    <a href=".$g_mdpage->socitems[1]->url." target=".$g_mdpage->socitems[1]->target." class=".$g_mdpage->socitems[1]->class." title=".$g_mdpage->socitems[1]->title."></a>\n";
-    } else {
-        if(isset($g_mdpage->footertxt))
-        {
-            echo "                    " . $g_mdpage->footertxt . "\n";
-        }
-    }
 ?>
                 </p>
             </div>
