@@ -14,6 +14,16 @@ There are a couple of *sections* in the JSON file, they are grouped as -
     #3 [Placeholder](https://placeholder.com/) enable flag, URL base, foreground & background colors, text, image width & height, and image type<br>
     #4 Link image URL, image width & height<br>
 
+```
+{
+    "prefix": "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#",
+    
+    "twitter": { /* meta tag config data */ },
+    
+    "og": { /* meta tag config data */ }
+}
+```
+
 The JSON key values shown below are for *testing purposes __only__*. 
 
 ## Configuration Details
@@ -193,3 +203,8 @@ The samples below were the results of the meta tags that were created with the c
 
 What's been described here is only a small portion of the capabilities and use of Open Graph. I plan on exploring everything else Open Graph can do and I will update this document and it's associated application code  as I learn more. 
 
+----
+
+<p align="center">
+  &copy; 2018 Jim Motyl
+</p>

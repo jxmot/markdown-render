@@ -1,4 +1,5 @@
 # markdown-render
+
 A PHP project that renders markdown files from GitHub repositories. Based on [Parsedown](http://parsedown.org)
 
 # History
@@ -199,63 +200,7 @@ In `test.json` -
 }
 ```
 
-The Opeh Graph tags will not be rendered unless `genstatic` **and** `oghead` are true. The configuration for the meta tag contents is in `oghead-example-test.json` - 
-
-```
-{
-    "prefix": "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#",
-
-    "twitter": {
-        "title": "Page or Site Title",
-        "url": "https://github.com/jxmot/markdown-render",
-        "description": "A brief description of your page or site, but don't make it too long. About this long should be good.",
-
-        "site": "@YourTwitterHandle",
-        "card": "summary_large_image",
-        "creator": "@YourTwitterHandle",
-
-        "use_ph": false,
-        "image_ph": "http://via.placeholder.com/",
-        "bgcolor_ph": "381aff",
-        "fgcolor_ph": "6eff3d",
-        "text_ph": "some_text_goes_here",
-        "imagewidth_ph": "1556",
-        "imageheight_ph": "778",
-        "imagetype_ph": "jpg",
-
-        "image": "https://raw.githubusercontent.com/jxmot/markdown-render/master/assets/img/placeimg_1000_800_arch-01.jpg",
-        "imagewidth": "1000",
-        "imageheight": "800"
-    },
-
-    "og": {
-        "title": "Page or Site Title",
-        "url": "https://github.com/jxmot/markdown-render",
-        "description": "A brief description of your page or site, but don't make it too long. About this long should be good.",
-
-        "type": "website",
-        "site_name": "This is My Site",
-
-        "use_ph": false,
-        "image_ph": "http://via.placeholder.com/",
-        "bgcolor_ph": "403dff",
-        "fgcolor_ph": "000000",
-        "text_ph": "some_text_goes_here",
-        "imagewidth_ph": "1200",
-        "imageheight_ph": "796",
-        "imagetype_ph": "jpg",
-
-        "image": "https://raw.githubusercontent.com/jxmot/markdown-render/master/assets/img/placeimg_1000_800_tech-01.jpg",
-        "imagewidth": "1000",
-        "imageheight": "800",
-
-        "imagetype": "image/jpg"
-    }
-}
-
-```
-
-The structure of the JSON file is intentional *at this time*. It currently allows for the ability to have two separate meta tag groups, one for Twitter and another for everything else.
+The Opeh Graph tags will not be rendered unless `genstatic` **and** `oghead` are true. The configuration for the meta tag content is in `oghead-example-test.json`. You can find the details in the **[oghead-example-test](oghead-example-test.md)** document.
 
 ## Additional Open Graph Information
 
@@ -274,11 +219,11 @@ Other things to know are -
 
 ### LinkedIn Notes
 
-Sometimes there are issues when adding a link to LinkedIn's *media* or to posts where the image is incorrect. If that happens place a small meaningless query at the end of the URL. This seems to force LinkedIn to read the Open Graph tags right away. An example URL - https://yoursite.com/**?1**
+Sometimes there are issues when adding a link to LinkedIn's *media* or to posts where the image is incorrect. If that happens edit and place a small meaningless query at the end of the URL. This seems to force LinkedIn to read the Open Graph tags right away. An example URL - https://yoursite.com/**?1**
 
 ### Twitter Notes
 
-The Twitter site and application do not appear to show the image right away. However I've found out that if I create the post with the link *on the Twitter web page* then I can see the image on the *Twitter desktop application*.
+The Twitter site and application do not appear to show the image right away. I *think* that the link target isn't scraped for the thumbnail until the post is viewed for the first time, not counting the original post. So if it doesn't show up right away quit the application or browser and restart.
 
 ## Other Modifiable Items
 
@@ -326,3 +271,8 @@ There have been a large number of changes made at [Parsedown](https://github.com
 
 **UPDATE 2018-0308 :** After much (very much) tinkering around with some "updated" version of parsedown I've decided that the version I'm using now will have to do. There were some changes that severly broke what I'm trying to do. Since the original code **is not commented sufficiently** it became increasing difficult to determine what exactly has changed and what the intent was. The problems were evident in embedded images, for example - `![some text](path/to/image.jpg)`. The 1.7.0 and 1.7.1 versions of Parsedown treated those *links* and processed them as such. During that process they're converted back to an embedded image. After I studied the Parsdown code in detail it appeared to me that the reason for that was a "fudge". Which was manifested as a call to inlineImage() and then from within that function to call inlineLink(). By calling inlineLink() the internals of the element array were manipulated to look like a `<a>` tag.
 
+----
+
+<p align="center">
+  &copy; 2018 Jim Motyl
+</p>
