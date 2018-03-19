@@ -1,0 +1,24 @@
+{
+    "owner"    : "jxmot",
+    "repo"     : "markdown-render",
+    "branch"   : "master",
+
+    "mdfilerem": true,
+    "mdfile"   : "oghead-example-test.md",
+
+    "pagetitle": "Details for oghead-example-test",
+
+    "gitdesc"  : false,
+    "metadesc" : "oghead-example-test JSON file content description",
+
+    "gittopics": false,
+    "metakeyw" : "markdown-render,markdown,opengraph,open-graph",
+
+    "metaauth" : "https://github.com/jxmot",
+
+    "genstatic": false,
+    "statname" : "./oghead-example-test.html",
+
+    "oghead": false,
+    "ogjson": ""
+}
