@@ -199,6 +199,7 @@ The samples below were the results of the meta tags that were created with the c
 * [Facebook A Guide to Sharing for Webmasters](https://developers.facebook.com/docs/sharing/webmasters)
     * [Facebook Open Graph Object Debugger](https://developers.facebook.com/tools/debug/og/object/)
 * [Social Debug](http://socialdebug.com/) - tests against Facebook, Twitter, Google+, and LinkedIn and "grades" the results.
+* [ApiLeap](https://apileap.com) - a screenshot API, built on Chrome. There is a free plan that allows you up to 100 screen shots per month. You'll have to go to their site to sign up for an access key. There is also a web interface that you can try at no cost. And from what I've seen so far it works much better then a few others that I've tried.
 
 # What's Next?
 
