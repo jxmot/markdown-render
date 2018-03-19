@@ -191,3 +191,4 @@ The samples below were the results of the meta tags that were created with the c
 # What's Next?
 
 What's been described here is only a small portion of the capabilities and use of Open Graph. I plan on exploring everything else Open Graph can do and I will update this document and it's associated application code  as I learn more. 
+
