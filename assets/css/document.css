@@ -65,14 +65,13 @@ body{
     }
 }
 
-
-code {
+pre {
     color: yellow;
     background: black;
     font-style: bold;
 }
 
-pre {
+code {
     color: yellow;
     background: black;
     font-style: bold;
