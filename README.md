@@ -44,7 +44,7 @@ PHP was the primary technology used in this project. It provides all of the nece
 ## Application Architecture
 
 <p align="center">
-  <img src="./mdimg/app-arch-simple-904x830.jpg" alt="Basic Architecture" txt="Basic Architecture" width="75%">
+  <img src="./mdimg/app-arch-simple-757x715.png" alt="Basic Architecture" txt="Basic Architecture" width="75%">
 </p>
 
 ## Minimum Requirements
