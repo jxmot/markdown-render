@@ -21,5 +21,8 @@
     "statname" : "./static.html",
 
     "oghead": false,
-    "ogjson": ""
+    "ogjson": "./oghead-example-test.json",
+
+    "codecolor": false,
+    "codecolorfiles": "./codecolor.json"
 }
