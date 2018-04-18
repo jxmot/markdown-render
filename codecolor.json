@@ -1,0 +1,10 @@
+{
+    "links":[
+        "<link href=\"./assets/prism/prism.css\" rel=\"stylesheet\"/>",
+        "END"
+    ],
+    "scripts":[
+        "<script src=\"./assets/prism/prism.min.js\"></script>",
+        "END"
+    ]
+}
