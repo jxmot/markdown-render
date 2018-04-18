@@ -1,6 +1,7 @@
 {
+    "body": "<body class=\"page-nocopy container-fluid\">",
     "footer": true,
-    "footertxt": "&nbsp;2017 &copy; James Motyl&nbsp;",
+    "footertxt": "&nbsp;2017 &copy; <a href=\"https://www.jamesmotyl.com/\" target=\"_blank\">James Motyl</a>&nbsp;",
     "socicon": true,
     "socitems": [
         { "url":"https://github.com/jxmot/", "class":"gh", "target":"_blank", "title":"See me on GitHub!" },
