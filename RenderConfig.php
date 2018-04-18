@@ -27,6 +27,9 @@ class RenderConfig {
     public $oghead;
     public $ogjson;
 
+    public $codecolor;
+    public $codecolorfiles;
+
     function __construct($cfgfile)
     {
         $this->git = json_decode(file_get_contents("./github.json"));
@@ -67,11 +70,14 @@ class RenderConfig {
         $this->configMeta();
 
         // generate a static file?
-        $this->genstatic = $this->cfg->genstatic;
+        $this->genstatic = (isset($this->cfg->genstatic) ? $this->cfg->genstatic : false);
         $this->statname  = ($this->genstatic === true ? $this->cfg->statname : "");
-
-        $this->oghead = $this->cfg->oghead;
+        // render the opengraph header contents
+        $this->oghead = (isset($this->cfg->oghead) ? $this->cfg->oghead : false);
         $this->ogjson = ($this->oghead === true ? $this->cfg->ogjson : "");
+        // optional colorizing of code blocks
+        $this->codecolor = (isset($this->cfg->codecolor) ? $this->cfg->codecolor : false);
+        $this->codecolorfiles = ($this->codecolor === true ? $this->cfg->codecolorfiles : "");
     }
 
     private function configMeta()
