@@ -414,11 +414,11 @@ class Parsedown
                     'class' => $class,
                 );
             }
-
+# jmotyl - it would be necessary to extend here or above for adding class 'line-numbers'(prismjs) to the <pre> below
             $Block = array(
                 'char' => $Line['text'][0],
                 'element' => array(
-                    'name' => 'pre',
+                    'name' => 'pre', # jmotyl - attribute class inserted just below
                     'handler' => 'element',
                     'text' => $Element,
                 ),
