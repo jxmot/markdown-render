@@ -1,0 +1,30 @@
+{
+    "owner"    : "jxmot",
+    "repo"     : "browser-size-view",
+    "branch"   : "master",
+
+    "mdfilerem": true,
+    "mdfile"   : "README.md",
+    "mdpageopt": "./mdpageopt.json",
+
+    "pagetitle": "browser-size-view - README",
+
+    "gitdesc"  : true,
+    "metadesc" : "",
+
+    "gittopics": true,
+    "metakeyw" : "",
+
+    "metaauth" : "https://github.com/jxmot",
+
+    "genstatic": false,
+    "statname" : "./bsizeview.html",
+
+    "oghead": false,
+    "ogjson": "",
+
+    "codecolor": true,
+    "codecolorfiles": "./codecolor.json"
+
+}
+
