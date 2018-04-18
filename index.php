@@ -31,12 +31,13 @@ if($g_pageconfig->genstatic === true) ob_start();
 <!DOCTYPE html>
 <html lang="en-us">
 <?php
-include "./head.php"
+include "./head.php";
+
+if(isset($g_mdpage->body) && ($g_mdpage->body != "")) 
+{
+    echo stripslashes($g_mdpage->body) . "\n";
+} else echo '<body class="container-fluid">' . "\n";
 ?>
-<!--
-<body class="page-nocopy container-fluid">
--->
-<body class="container-fluid">
     <!-- Document -->
     <div class="row doc-body">
         <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
@@ -48,10 +49,10 @@ echo "\n" . $render->text($file) . "\n";
             <!-- ^Rendered Document -->
         </div>
 <?php
-    if(isset($g_mdpage->totop) && ($g_mdpage->totop === true))
-    {
-        echo '        <button id="gototop" class="gototop" onclick="jumpToTop()" title="Go to top of page">&#9650;<br>top</button>' . "\n";
-    }
+if(isset($g_mdpage->totop) && ($g_mdpage->totop === true))
+{
+    echo '        <button id="gototop" class="gototop" onclick="jumpToTop()" title="Go to top of page">&#9650;<br>top</button>' . "\n";
+}
 ?>
         <br>
         <br>
@@ -59,44 +60,64 @@ echo "\n" . $render->text($file) . "\n";
     <!-- ^Document -->
     <!-- Page Footer -->
 <?php
-    if(isset($g_mdpage->footer) && ($g_mdpage->footer === true))
-    {
+if(isset($g_mdpage->footer) && ($g_mdpage->footer === true))
+{
 ?>
     <footer class="navbar navbar-default navbar-fixed-bottom">
         <div class="text-center">
             <div class="mdfooter col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12">
                 <p>
 <?php
-        if(isset($g_mdpage->socicon) && ($g_mdpage->socicon === true))
+    if(isset($g_mdpage->socicon) && ($g_mdpage->socicon === true))
+    {
+        echo "                    <a href=".$g_mdpage->socitems[0]->url." target=".$g_mdpage->socitems[0]->target." class=".$g_mdpage->socitems[0]->class." title=".$g_mdpage->socitems[0]->title."></a>\n";
+        if(isset($g_mdpage->footertxt))
         {
-            echo "                    <a href=".$g_mdpage->socitems[0]->url." target=".$g_mdpage->socitems[0]->target." class=".$g_mdpage->socitems[0]->class." title=".$g_mdpage->socitems[0]->title."></a>\n";
-            if(isset($g_mdpage->footertxt))
-            {
-                echo "                    " . $g_mdpage->footertxt . "\n";
-            }
-            echo "                    <a href=".$g_mdpage->socitems[1]->url." target=".$g_mdpage->socitems[1]->target." class=".$g_mdpage->socitems[1]->class." title=".$g_mdpage->socitems[1]->title."></a>\n";
-        } else {
-            if(isset($g_mdpage->footertxt))
-            {
-                echo "                    " . $g_mdpage->footertxt . "\n";
-            }
+            echo "                    " . stripslashes($g_mdpage->footertxt) . "\n";
         }
+        echo "                    <a href=".$g_mdpage->socitems[1]->url." target=".$g_mdpage->socitems[1]->target." class=".$g_mdpage->socitems[1]->class." title=".$g_mdpage->socitems[1]->title."></a>\n";
+    } else {
+        if(isset($g_mdpage->footertxt))
+        {
+            echo "                    " . stripslashes($g_mdpage->footertxt) . "\n";
+        }
+    }
 ?>
                 </p>
             </div>
         </div>
     </footer>
 <?php   
-    }
+}
 ?>
     <!-- ^Page Footer -->
-</body>
-<!-- code for the "go to top" button -->
-<script src="./assets/js/totop.js"></script>
-</html>
 <?php
+if(isset($g_pageconfig->codecolor) && ($g_pageconfig->codecolor === true))
+{
+    if(isset($g_pageconfig->codecolorfiles)) 
+    {
+        $codecolor = json_decode(file_get_contents($g_pageconfig->codecolorfiles));
+        for($ix = 0;$codecolor->scripts[$ix] != "END";$ix++)
+        {
+            $script = stripslashes($codecolor->scripts[$ix]);
+            echo "    $script\n";
+        }
+    }
+}
+
+echo "</body>\n";
+
+if(isset($g_mdpage->totop) && ($g_mdpage->totop === true))
+{
+    echo '<!-- code for the "go to top" button -->' . "\n";
+    echo '<script src="./assets/js/totop.js"></script>' . "\n";
+}
+
+echo "</html>\n";
+
 // generate a static file?
-if($g_pageconfig->genstatic === true) {
+if($g_pageconfig->genstatic === true) 
+{
     $content = ob_get_contents();
     ob_end_flush();
     $fh = fopen("$g_pageconfig->statname",'w'); 

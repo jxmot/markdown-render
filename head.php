@@ -72,8 +72,20 @@ echo "\n";
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700">
     <!-- page styling -->
     <link rel="stylesheet" href="./assets/css/document.css">
-
 <?php
+    if(isset($g_pageconfig->codecolor) && ($g_pageconfig->codecolor === true))
+    {
+        if(isset($g_pageconfig->codecolorfiles)) 
+        {
+            $codecolor = json_decode(file_get_contents($g_pageconfig->codecolorfiles));
+            for($ix = 0;$codecolor->links[$ix] != "END";$ix++)
+            {
+                $link = stripslashes($codecolor->links[$ix]);
+                echo "    $link\n";
+            }
+        }
+    }
+
     if(isset($g_mdpage->totop) && ($g_mdpage->totop === true))
     {
         echo '    <link rel="stylesheet" href="./assets/css/totop.css">'."\n";
