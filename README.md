@@ -33,6 +33,7 @@ Here are the application features -
         * Meta Tags - Can be configured in the JSON file or can be retrieved from the GitHub repository.
             * Meta Description
             * Meta Keywords
+    * Code Coloring - Using [PrismJS](http://prismjs.com/) for creating colorized code blocks. 
 * Modifies resource paths for images. The configurable GitHub settings are used in on-the-fly modification of image tags so that the `src` attributes point to the correct location.
 * Modifies resource paths for in-line links such as `[test.md](./test.md)` and adds `target="_blank"` to the resulting HTML link. The configurable GitHub settings are used in on-the-fly modification of link tags so that the `href` attributes point to the correct location. **Note :** The code expects a *relative path* to the root of the repository.
 
@@ -73,8 +74,9 @@ I used Netbeans 8.2 for the majority of my debugging. It works very well with PH
     * `ParsedownModify.php`
     * `RenderConfig.php`
     * `github.json`
-    * `test.json`
     * `mdpageopt.json`
+    * `codecolor.json`
+    * `test.json`
     * `test.md`
 
 5. Run XAMPP and start Apache (*not necessary if running on a hosting server*)
@@ -91,7 +93,7 @@ Here is the file in GitHub - [test.md](./test.md) (*right-click and open in a ne
 
 **github.json :** Typically it will not be necessary to edit this file. It contains *GitHub* specific configuration items that are not likely to change often.
 
-```
+```json
 {
     "reporaw"  : "https://raw.githubusercontent.com/",
 
@@ -113,7 +115,7 @@ It *should not be* necessary to edit the following in the `github.json` file -
 
 **test.json :** This file and its contents are specific to the Markdown file that you want to render. 
 
-```
+```json
 {
     "owner"    : "jxmot",
     "repo"     : "markdown-render",
@@ -137,7 +139,10 @@ It *should not be* necessary to edit the following in the `github.json` file -
     "statname" : "./test.html",
 
     "oghead": true,
-    "ogjson": "./oghead-example-test.json"
+    "ogjson": "./oghead-example-test.json",
+
+    "codecolor": true,
+    "codecolorfiles": "./codecolor.json"
 }
 ```
 
@@ -158,12 +163,14 @@ The following found in `test.json` can be edited as needed -
 * `statname` - the name of the generated static HTML file, since the rendered file will use the CSS and JS files it is best to save it in the current location (i.e. `./`)
 * `oghead` - if **`true`** then meta tags containing *Open Graph* protocol data will be included within the `<head>` tags. **NOTE :** `genstatic` must be **`true`**, otherwise this field is ignored
 * `ogjson` - the path + name of the configuration file which contains the data for the Open Graph meta tags
+* `codecolor` - if **`true`** then code block colorization is enabled.
+* `codecolorfiles` - points to a file that contains links to the necessary CSS and JS files.
 
 Additional JSON files can be created as needed and contain different repository information. To run the application using a different JSON file is accomplished using a *query*. For example if a JSON file named `myreadme.json` is to be used then point the browser to - `http://localhost/tests/mdrender/index.php?cfg=myreadme`.
 
 **mdpageopt.json :** There are additional features that are configurable via a another JSON file  - 
 
-```
+```json
 {
     "footer": true,
     "footertxt": "&nbsp;2017 &copy; James Motyl&nbsp;",
@@ -190,7 +197,7 @@ Additional JSON files can be created as needed and contain different repository 
 
 In `test.json` - 
 
-```
+```json
 {
 # not related to other settings in this file
 
@@ -202,8 +209,27 @@ In `test.json` -
     "ogjson": "./oghead-example-test.json"
 }
 ```
+<br>
 
 The Opeh Graph tags will not be rendered unless `genstatic` **and** `oghead` are true. The configuration for the meta tag content is in `oghead-example-test.json`. You can find the details in the **[oghead-example-test](oghead-example-test.md)** document.
+
+**codecolor.json :** The `codecolor.json` file contains the necessary CSS and JavaScript tags for using [PrismJS](http://prismjs.com/) - 
+
+```json
+{
+    "links":[
+        "<link href=\"./assets/prism/prism.css\" rel=\"stylesheet\"/>",
+        "END"
+    ],
+    "scripts":[
+        "<script src=\"./assets/prism/prism.min.js\"></script>",
+        "END"
+    ]
+}
+```
+<br>
+
+Individual "code coloring" JSON files can be created as needed, and document configuration files can specify their own file. This was done due to the nature of the [PrismJS](http://prismjs.com/) dowload process will provide differnt CSS/JS files depending upon selected options. If addtional CSS or JS files are needed they can be inserted into the `"links"` or `"scripts"` arrays before `"END"`. If using the [PrismJS CDN](https://cdnjs.com/libraries/prism) those URLs can also be located in this file.
 
 ## Additional Open Graph Information
 
@@ -238,7 +264,7 @@ The bulk of the page styling is done with Bootstrap and a CSS file(`assets/css/d
 
 I used XAMPP and NetBeans 8.2(PHP) to develop and debug this project. In order to properly debug with the NetBeans IDE it is necessary to modify the XAMPP `php.ini` file. Contrary to the majority of on-line resources the *correct* settings are - 
 
-```
+```ini
 [XDebug]
 zend_extension = "./php_xdebug.dll"
 ; XAMPP and XAMPP Lite 1.7.0 and later come with a bundled xdebug at <XAMPP_HOME>/php/ext/php_xdebug.dll, without a version number.
@@ -277,5 +303,5 @@ There have been a large number of changes made at [Parsedown](https://github.com
 ----
 
 <p align="center">
-  &copy; 2018 Jim Motyl
+  &copy; 2018 <a href="https://www.jamesmotyl.com/" target="_blank">James Motyl</a>
 </p>
