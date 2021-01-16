@@ -300,8 +300,9 @@ There have been a large number of changes made at [Parsedown](https://github.com
 
 **UPDATE 2018-03-08 :** After much (very much) tinkering around with some "updated" version of parsedown I've decided that the version I'm using now will have to do. There were some changes that severly broke what I'm trying to do. Since the original code **is not commented sufficiently** it became increasing difficult to determine what exactly has changed and what the intent was. The problems were evident in embedded images, for example - `![some text](path/to/image.jpg)`. The 1.7.0 and 1.7.1 versions of Parsedown treated those *links* and processed them as such. During that process they're converted back to an embedded image. After I studied the Parsdown code in detail it appeared to me that the reason for that was a "fudge". Which was manifested as a call to inlineImage() and then from within that function to call inlineLink(). By calling inlineLink() the internals of the element array were manipulated to look like a `<a>` tag.
 
-----
-
 <p align="center">
   &copy; 2018 <a href="https://www.jamesmotyl.com/" target="_blank">James Motyl</a>
 </p>
+
+---
+<img src="http://webexperiment.info/extcounter/mdcount.php?id=markdown-render">
