@@ -2,6 +2,21 @@
 
 A PHP project that renders markdown files from GitHub repositories. Based on [Parsedown](http://parsedown.org)
 
+- [History](#history)
+- [Features](#features)
+- [Implementation Overview](#implementation-overview)
+  - [Application Architecture](#application-architecture)
+  - [Minimum Requirements](#minimum-requirements)
+- [Running the Project](#running-the-project)
+  - [Configuration](#configuration)
+  - [SEO and Open Graph](#seo-and-open-graph)
+  - [Other Modifiable Items](#other-modifiable-items)
+- [Development and Debugging](#development-and-debugging)
+  - [Running under NetBeans](#running-under-netbeans)
+  - [Running on a Host](#running-on-a-host)
+- [IMPORTANT Things to Note](#important-things-to-note)
+
+
 # History
 
 Initially I was looking for a way to render *markdown* files for a blog project I was working on. The intent at that time was to be able to render small markdown files that were to be used as blog entries.
@@ -199,9 +214,6 @@ In `test.json` -
 
 ```json
 {
-# not related to other settings in this file
-
-
     "genstatic": true,
     "statname" : "./test.html",
 
@@ -231,7 +243,7 @@ The Opeh Graph tags will not be rendered unless `genstatic` **and** `oghead` are
 
 Individual "code coloring" JSON files can be created as needed, and document configuration files can specify their own file. This was done due to the nature of the [PrismJS](http://prismjs.com/) dowload process will provide differnt CSS/JS files depending upon selected options. If addtional CSS or JS files are needed they can be inserted into the `"links"` or `"scripts"` arrays before `"END"`. If using the [PrismJS CDN](https://cdnjs.com/libraries/prism) those URLs can also be located in this file.
 
-## Additional Open Graph Information
+## SEO and Open Graph
 
 The Open Graph options in this application are intended for use when creating a static page from the rendered ouput. Even if you want to continue live rendering of the page a static HTML would be necessary in order for the Open Graph parts to work correctly.
 
@@ -248,7 +260,7 @@ Other things to know are -
 
 ### LinkedIn Notes
 
-Sometimes there are issues when adding a link to LinkedIn's *media* or to posts where the image is incorrect. If that happens edit and place a small meaningless query at the end of the URL. This seems to force LinkedIn to read the Open Graph tags right away. An example URL - https://yoursite.com/**?1**. 
+Sometimes there are issues when adding a link to LinkedIn's *media* or to posts where the image is incorrect. If that happens edit the link and place a small meaningless query at the end of the URL. This seems to force LinkedIn to read the Open Graph tags right away. An example URL - `https://yoursite.com/`**`?1`**. Each time it needs to be updated just edit the link and change the query.
 
 ### Twitter Notes
 
