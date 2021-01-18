@@ -1,0 +1,26 @@
+{
+    "owner"    : "jxmot",
+    "repo"     : "reCAPTCHA",
+    "branch"   : "master",
+
+    "mdfilerem": true,
+    "mdfile"   : "README.md",
+    "mdpageopt": "./mdpageopt.json",
+
+    "pagetitle": "reCAPTCHA - README",
+
+    "gitdesc"  : true,
+    "metadesc" : "",
+
+    "gittopics": true,
+    "metakeyw" : "",
+
+    "metaauth" : "https://github.com/jxmot",
+
+    "genstatic": false,
+    "statname" : "./reCAPTCHA.html",
+
+    "oghead": false,
+    "ogjson": ""
+}
+
