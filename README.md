@@ -6,7 +6,7 @@ A PHP project that renders markdown files from GitHub repositories. Based on [Pa
 <summary>
 Table of contents
 </summary>
-<p>
+<p><span>
 
 - [History](#history)
 - [Features](#features)
@@ -22,7 +22,7 @@ Table of contents
   - [Running on a Host](#running-on-a-host)
 - [IMPORTANT Things to Note](#important-things-to-note)
 
-</p>
+</span></p>
 </details>
 
 
