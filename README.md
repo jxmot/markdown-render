@@ -2,28 +2,19 @@
 
 A PHP project that renders markdown files from GitHub repositories. Based on [Parsedown](http://parsedown.org)
 
-<details>
-<summary>
-Table of contents
-</summary>
-<p><span>
-
-- [History](#history)<br>
-- [Features](#features)<br>
-- [Implementation Overview](#implementation-overview)<br>
-  - [Application Architecture](#application-architecture)<br>
-  - [Minimum Requirements](#minimum-requirements)<br>
-- [Running the Project](#running-the-project)<br>
-  - [Configuration](#configuration)<br>
-  - [SEO and Open Graph](#seo-and-open-graph)<br>
-  - [Other Modifiable Items](#other-modifiable-items)<br>
-- [Development and Debugging](#development-and-debugging)<br>
-  - [Running under NetBeans](#running-under-netbeans)<br>
-  - [Running on a Host](#running-on-a-host)<br>
-- [IMPORTANT Things to Note](#important-things-to-note)<br>
-
-</span></p>
-</details>
+- [History](#history)
+- [Features](#features)
+- [Implementation Overview](#implementation-overview)
+  - [Application Architecture](#application-architecture)
+  - [Minimum Requirements](#minimum-requirements)
+- [Running the Project](#running-the-project)
+  - [Configuration](#configuration)
+  - [SEO and Open Graph](#seo-and-open-graph)
+  - [Other Modifiable Items](#other-modifiable-items)
+- [Development and Debugging](#development-and-debugging)
+  - [Running under NetBeans](#running-under-netbeans)
+  - [Running on a Host](#running-on-a-host)
+- [IMPORTANT Things to Note](#important-things-to-note)
 
 
 # History
