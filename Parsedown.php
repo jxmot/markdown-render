@@ -771,7 +771,7 @@ class Parsedown
         {
             // jxmot - This is the "signature" of an element that was modified.
             // For example <img ...>
-            if($tmpBlock['closed'] === true && $tmpBlock['void'] === true)
+            if((isset($tmpBlock['closed']) && $tmpBlock['closed'] === true) && $tmpBlock['void'] === true)
             {
                 $Line['body'] = str_repeat(" ", $Line['indent']) . $tmpBlock['markup'];
             }
