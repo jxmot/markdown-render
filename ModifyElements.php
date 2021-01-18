@@ -33,15 +33,18 @@ class ModifyElements {
             // verify the block name in case the caller didn't
             if((strtolower($imgBlock['name']) === 'img') &&(isset($imgBlock['markup']))) {
                 if($this->getAttributes($imgBlock['markup']) !== false) {
-                    // rebuild the "src" attribute
-                    $src = $this->reporaw . $this->owner . $this->pathsep . $this->repo . $this->pathsep . $this->branch . $this->pathsep;
-                    // remove leading "./" from $this->attrs['src']
-                    // To Do: !!! Must also take into account paths such as
-                    // `../../path` and similar. Check "starts with" modifiying!!!!
-                    $src = str_replace("./", "", ($src . $this->attrs['src']));
-                    // rebuild the markup
-                    $this->attrs['src'] = $src;
-                    $imgBlock['markup'] = $this->rebuildElement($imgBlock['name']);
+                    // only modify the src path if it is a not a URL
+                    if(strpos(strtolower($this->attrs['src']), "http", 0) !== 0) {
+                        // rebuild the "src" attribute
+                        $src = $this->reporaw . $this->owner . $this->pathsep . $this->repo . $this->pathsep . $this->branch . $this->pathsep;
+                        // remove leading "./" from $this->attrs['src']
+                        // To Do: !!! Must also take into account paths such as
+                        // `../../path` and similar. Check "starts with" modifiying!!!!
+                        $src = str_replace("./", "", ($src . $this->attrs['src']));
+                        // rebuild the markup
+                        $this->attrs['src'] = $src;
+                        $imgBlock['markup'] = $this->rebuildElement($imgBlock['name']);
+                    }
                 }
             }
         } else {
