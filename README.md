@@ -2,6 +2,12 @@
 
 A PHP project that renders markdown files from GitHub repositories. Based on [Parsedown](http://parsedown.org)
 
+<details>
+<summary>
+Table of contents
+</summary>
+<p>
+
 - [History](#history)
 - [Features](#features)
 - [Implementation Overview](#implementation-overview)
@@ -15,6 +21,9 @@ A PHP project that renders markdown files from GitHub repositories. Based on [Pa
   - [Running under NetBeans](#running-under-netbeans)
   - [Running on a Host](#running-on-a-host)
 - [IMPORTANT Things to Note](#important-things-to-note)
+
+</p>
+</details>
 
 
 # History
